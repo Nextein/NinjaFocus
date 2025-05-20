@@ -475,7 +475,7 @@ def analyze_timeframe(timeframe):
                 else:
                     candle_info = f" ({candles_ago} Candles Ago)"
 
-            message = (f"🚨 {CONFIG['symbol']} {timeframe} {signal.upper()} {candle_info}🚨\n"
+            message = (f"🚨 {CONFIG['symbol']} {timeframe} 🚨\n {signal.upper()} {candle_info}🚨\n"
                        f"Price is/was {abs(bb_pct):.2f}% {'above' if signal == 'overbought' else 'below'} BB\n"
                        f"Current Price: {df.iloc[-1]['close']:.4f}\n"
                        f"RSI: {df.iloc[-1]['rsi']:.2f}")
