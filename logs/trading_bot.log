@@ -1,0 +1,10 @@
+2025-04-26 02:12:24,594 - INFO - Starting trading bot
+2025-04-26 02:12:24,607 - INFO - Starting analysis job
+2025-04-26 02:12:28,025 - INFO - Fetched 1000 OHLCV records
+2025-04-26 02:12:28,157 - ERROR - Failed to check conditions: single positional indexer is out-of-bounds
+2025-04-26 02:12:28,157 - INFO - Analysis job completed
+2025-04-26 02:12:28,412 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-04-26 02:12:28,413 - INFO - Scheduler started - running every 5 minutes
+2025-04-26 02:12:28,435 - INFO - Added job "job" to job store "default"
+2025-04-26 02:12:28,435 - INFO - Scheduler started
+2025-04-26 02:13:03,371 - INFO - Bot stopped by user

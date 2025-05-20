@@ -1,0 +1,1099 @@
+2025-04-30 00:01:02,083 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:06:02 CEST)" (scheduled at 2025-04-30 00:01:02.071165+02:00)
+2025-04-30 00:01:02,139 - INFO - Starting analysis job
+2025-04-30 00:01:02,140 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T14:01:02.000Z
+2025-04-30 00:01:02,737 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 00:01:02,748 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T04:01:02.000Z
+2025-04-30 00:01:03,019 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 00:01:03,029 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T08:01:03.000Z
+2025-04-30 00:01:03,695 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 00:01:03,703 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T16:01:03.000Z
+2025-04-30 00:01:04,017 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 00:01:04,030 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:01:04.000Z
+2025-04-30 00:01:04,306 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:01:04,315 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:01:04.000Z
+2025-04-30 00:01:04,603 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:01:04,608 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 00:01:04,612 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:01:04.000Z
+2025-04-30 00:01:04,916 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:01:04,930 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 00:01:04,931 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T00:01:04.000Z
+2025-04-30 00:01:05,224 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 00:01:05,233 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 00:01:05,233 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:01:05.000Z
+2025-04-30 00:01:05,522 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:01:05,530 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 00:01:05,531 - WARNING - Not enough data to calculate indicators
+2025-04-30 00:01:05,531 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 00:01:05,531 - INFO - Analysis job completed
+2025-04-30 00:01:05,531 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:06:02 CEST)" executed successfully
+2025-04-30 00:06:02,078 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:11:02 CEST)" (scheduled at 2025-04-30 00:06:02.071165+02:00)
+2025-04-30 00:06:02,115 - INFO - Starting analysis job
+2025-04-30 00:06:02,115 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T14:06:02.000Z
+2025-04-30 00:06:02,483 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 00:06:02,494 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T04:06:02.000Z
+2025-04-30 00:06:02,813 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 00:06:02,820 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T08:06:02.000Z
+2025-04-30 00:06:03,212 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 00:06:03,219 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T16:06:03.000Z
+2025-04-30 00:06:03,537 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 00:06:03,547 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:06:03.000Z
+2025-04-30 00:06:03,820 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:06:03,830 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:06:03.000Z
+2025-04-30 00:06:04,128 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:06:04,135 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 00:06:04,135 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:06:04.000Z
+2025-04-30 00:06:04,447 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:06:04,461 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 00:06:04,462 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T00:06:04.000Z
+2025-04-30 00:06:04,862 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 00:06:04,869 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 00:06:04,869 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:06:04.000Z
+2025-04-30 00:06:05,213 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:06:05,218 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 00:06:05,218 - WARNING - Not enough data to calculate indicators
+2025-04-30 00:06:05,218 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 00:06:05,219 - INFO - Analysis job completed
+2025-04-30 00:06:05,219 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:11:02 CEST)" executed successfully
+2025-04-30 00:11:02,073 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:16:02 CEST)" (scheduled at 2025-04-30 00:11:02.071165+02:00)
+2025-04-30 00:11:02,085 - INFO - Starting analysis job
+2025-04-30 00:11:02,086 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T14:11:02.000Z
+2025-04-30 00:11:02,530 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 00:11:02,538 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T04:11:02.000Z
+2025-04-30 00:11:02,940 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 00:11:02,945 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T08:11:02.000Z
+2025-04-30 00:11:03,357 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 00:11:03,364 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T16:11:03.000Z
+2025-04-30 00:11:03,616 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 00:11:03,622 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:11:03.000Z
+2025-04-30 00:11:03,959 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:11:03,964 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:11:03.000Z
+2025-04-30 00:11:04,267 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:11:04,272 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 00:11:04,272 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:11:04.000Z
+2025-04-30 00:11:04,561 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:11:04,570 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 00:11:04,570 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T00:11:04.000Z
+2025-04-30 00:11:04,870 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 00:11:04,875 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 00:11:04,876 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:11:04.000Z
+2025-04-30 00:11:05,198 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:11:05,203 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 00:11:05,203 - WARNING - Not enough data to calculate indicators
+2025-04-30 00:11:05,203 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 00:11:05,203 - INFO - Analysis job completed
+2025-04-30 00:11:05,203 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:16:02 CEST)" executed successfully
+2025-04-30 00:16:02,074 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:21:02 CEST)" (scheduled at 2025-04-30 00:16:02.071165+02:00)
+2025-04-30 00:16:02,086 - INFO - Starting analysis job
+2025-04-30 00:16:02,086 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T14:16:02.000Z
+2025-04-30 00:16:02,475 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 00:16:02,480 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T04:16:02.000Z
+2025-04-30 00:16:02,755 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 00:16:02,760 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T08:16:02.000Z
+2025-04-30 00:16:03,025 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 00:16:03,030 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T16:16:03.000Z
+2025-04-30 00:16:03,390 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 00:16:03,395 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:16:03.000Z
+2025-04-30 00:16:03,783 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:16:03,788 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:16:03.000Z
+2025-04-30 00:16:04,036 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:16:04,041 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 00:16:04,041 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:16:04.000Z
+2025-04-30 00:16:04,309 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:16:04,320 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 00:16:04,320 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T00:16:04.000Z
+2025-04-30 00:16:04,595 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 00:16:04,600 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 00:16:04,600 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:16:04.000Z
+2025-04-30 00:16:04,848 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:16:04,853 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 00:16:04,853 - WARNING - Not enough data to calculate indicators
+2025-04-30 00:16:04,853 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 00:16:04,853 - INFO - Analysis job completed
+2025-04-30 00:16:04,853 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:21:02 CEST)" executed successfully
+2025-04-30 00:21:02,071 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:26:02 CEST)" (scheduled at 2025-04-30 00:21:02.071165+02:00)
+2025-04-30 00:21:02,105 - INFO - Starting analysis job
+2025-04-30 00:21:02,106 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T14:21:02.000Z
+2025-04-30 00:21:02,477 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 00:21:02,483 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T04:21:02.000Z
+2025-04-30 00:21:02,745 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 00:21:02,750 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T08:21:02.000Z
+2025-04-30 00:21:03,111 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 00:21:03,120 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T16:21:03.000Z
+2025-04-30 00:21:03,424 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 00:21:03,429 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:21:03.000Z
+2025-04-30 00:21:04,239 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:21:04,244 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:21:04.000Z
+2025-04-30 00:21:04,492 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:21:04,496 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 00:21:04,497 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:21:04.000Z
+2025-04-30 00:21:04,752 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:21:04,760 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 00:21:04,761 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T00:21:04.000Z
+2025-04-30 00:21:05,049 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 00:21:05,053 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 00:21:05,054 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:21:05.000Z
+2025-04-30 00:21:05,294 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:21:05,299 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 00:21:05,299 - WARNING - Not enough data to calculate indicators
+2025-04-30 00:21:05,299 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 00:21:05,299 - INFO - Analysis job completed
+2025-04-30 00:21:05,299 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:26:02 CEST)" executed successfully
+2025-04-30 00:26:02,074 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:31:02 CEST)" (scheduled at 2025-04-30 00:26:02.071165+02:00)
+2025-04-30 00:26:02,089 - INFO - Starting analysis job
+2025-04-30 00:26:02,089 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T14:26:02.000Z
+2025-04-30 00:26:02,421 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 00:26:02,426 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T04:26:02.000Z
+2025-04-30 00:26:02,754 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 00:26:02,759 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T08:26:02.000Z
+2025-04-30 00:26:03,007 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 00:26:03,012 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T16:26:03.000Z
+2025-04-30 00:26:03,348 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 00:26:03,354 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:26:03.000Z
+2025-04-30 00:26:03,658 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:26:03,663 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:26:03.000Z
+2025-04-30 00:26:04,010 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:26:04,015 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 00:26:04,015 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:26:04.000Z
+2025-04-30 00:26:04,375 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:26:04,383 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 00:26:04,383 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T00:26:04.000Z
+2025-04-30 00:26:04,678 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 00:26:04,683 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 00:26:04,684 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:26:04.000Z
+2025-04-30 00:26:04,987 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:26:04,991 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 00:26:04,991 - WARNING - Not enough data to calculate indicators
+2025-04-30 00:26:04,991 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 00:26:04,991 - INFO - Analysis job completed
+2025-04-30 00:26:04,991 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:31:02 CEST)" executed successfully
+2025-04-30 00:31:02,076 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:36:02 CEST)" (scheduled at 2025-04-30 00:31:02.071165+02:00)
+2025-04-30 00:31:02,095 - INFO - Starting analysis job
+2025-04-30 00:31:02,097 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T14:31:02.000Z
+2025-04-30 00:31:02,585 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 00:31:02,598 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T04:31:02.000Z
+2025-04-30 00:31:02,856 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 00:31:02,861 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T08:31:02.000Z
+2025-04-30 00:31:03,110 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 00:31:03,115 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T16:31:03.000Z
+2025-04-30 00:31:03,462 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 00:31:03,467 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:31:03.000Z
+2025-04-30 00:31:03,801 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:31:03,806 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:31:03.000Z
+2025-04-30 00:31:04,102 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:31:04,106 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 00:31:04,107 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:31:04.000Z
+2025-04-30 00:31:04,447 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:31:04,460 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 00:31:04,461 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T00:31:04.000Z
+2025-04-30 00:31:04,817 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 00:31:04,822 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 00:31:04,822 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:31:04.000Z
+2025-04-30 00:31:05,062 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:31:05,066 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 00:31:05,066 - WARNING - Not enough data to calculate indicators
+2025-04-30 00:31:05,067 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 00:31:05,067 - INFO - Analysis job completed
+2025-04-30 00:31:05,067 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:36:02 CEST)" executed successfully
+2025-04-30 00:36:02,106 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:41:02 CEST)" (scheduled at 2025-04-30 00:36:02.071165+02:00)
+2025-04-30 00:36:02,121 - INFO - Starting analysis job
+2025-04-30 00:36:02,146 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T14:36:02.000Z
+2025-04-30 00:36:02,502 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 00:36:02,507 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T04:36:02.000Z
+2025-04-30 00:36:02,760 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 00:36:02,766 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T08:36:02.000Z
+2025-04-30 00:36:03,011 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 00:36:03,017 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T16:36:03.000Z
+2025-04-30 00:36:03,367 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 00:36:03,372 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:36:03.000Z
+2025-04-30 00:36:03,619 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:36:03,625 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:36:03.000Z
+2025-04-30 00:36:03,984 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:36:03,988 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 00:36:03,989 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:36:03.000Z
+2025-04-30 00:36:04,240 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:36:04,249 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 00:36:04,249 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T00:36:04.000Z
+2025-04-30 00:36:04,539 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 00:36:04,544 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 00:36:04,545 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:36:04.000Z
+2025-04-30 00:36:04,784 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:36:04,789 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 00:36:04,789 - WARNING - Not enough data to calculate indicators
+2025-04-30 00:36:04,789 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 00:36:04,789 - INFO - Analysis job completed
+2025-04-30 00:36:04,790 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:41:02 CEST)" executed successfully
+2025-04-30 00:41:02,075 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:46:02 CEST)" (scheduled at 2025-04-30 00:41:02.071165+02:00)
+2025-04-30 00:41:02,132 - INFO - Starting analysis job
+2025-04-30 00:41:02,132 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T14:41:02.000Z
+2025-04-30 00:41:02,596 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 00:41:02,602 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T04:41:02.000Z
+2025-04-30 00:41:02,868 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 00:41:02,873 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T08:41:02.000Z
+2025-04-30 00:41:03,201 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 00:41:03,206 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T16:41:03.000Z
+2025-04-30 00:41:03,452 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 00:41:03,466 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:41:03.000Z
+2025-04-30 00:41:04,227 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:41:04,232 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:41:04.000Z
+2025-04-30 00:41:04,592 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:41:04,597 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 00:41:04,598 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:41:04.000Z
+2025-04-30 00:41:04,847 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:41:04,856 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 00:41:04,856 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T00:41:04.000Z
+2025-04-30 00:41:05,096 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 00:41:05,103 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 00:41:05,103 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:41:05.000Z
+2025-04-30 00:41:05,469 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:41:05,473 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 00:41:05,474 - WARNING - Not enough data to calculate indicators
+2025-04-30 00:41:05,474 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 00:41:05,474 - INFO - Analysis job completed
+2025-04-30 00:41:05,474 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:46:02 CEST)" executed successfully
+2025-04-30 00:46:02,072 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:51:02 CEST)" (scheduled at 2025-04-30 00:46:02.071165+02:00)
+2025-04-30 00:46:02,108 - INFO - Starting analysis job
+2025-04-30 00:46:02,109 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T14:46:02.000Z
+2025-04-30 00:46:02,438 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 00:46:02,444 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T04:46:02.000Z
+2025-04-30 00:46:02,697 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 00:46:02,702 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T08:46:02.000Z
+2025-04-30 00:46:03,053 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 00:46:03,058 - INFO - Signal detected: OVERSOLD (Price: 145.9600, RSI: 32.89)
+2025-04-30 00:46:03,059 - ERROR - Error analyzing 1h timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 00:46:03,059 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T16:46:03.000Z
+2025-04-30 00:46:03,333 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 00:46:03,338 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:46:03.000Z
+2025-04-30 00:46:03,582 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:46:03,587 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:46:03.000Z
+2025-04-30 00:46:03,858 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:46:03,863 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 00:46:03,863 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:46:03.000Z
+2025-04-30 00:46:04,103 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:46:04,112 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 00:46:04,112 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T00:46:04.000Z
+2025-04-30 00:46:04,353 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 00:46:04,358 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 00:46:04,358 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:46:04.000Z
+2025-04-30 00:46:04,604 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:46:04,608 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 00:46:04,608 - WARNING - Not enough data to calculate indicators
+2025-04-30 00:46:04,608 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 00:46:04,608 - INFO - Analysis job completed
+2025-04-30 00:46:04,608 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:51:02 CEST)" executed successfully
+2025-04-30 00:51:02,083 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:56:02 CEST)" (scheduled at 2025-04-30 00:51:02.071165+02:00)
+2025-04-30 00:51:02,151 - INFO - Starting analysis job
+2025-04-30 00:51:02,151 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T14:51:02.000Z
+2025-04-30 00:51:02,578 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 00:51:02,585 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T04:51:02.000Z
+2025-04-30 00:51:02,842 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 00:51:02,848 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T08:51:02.000Z
+2025-04-30 00:51:03,094 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 00:51:03,100 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T16:51:03.000Z
+2025-04-30 00:51:03,342 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 00:51:03,347 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:51:03.000Z
+2025-04-30 00:51:03,586 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:51:03,592 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:51:03.000Z
+2025-04-30 00:51:03,968 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:51:03,973 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 00:51:03,973 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:51:03.000Z
+2025-04-30 00:51:04,334 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:51:04,342 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 00:51:04,343 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T00:51:04.000Z
+2025-04-30 00:51:04,639 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 00:51:04,643 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 00:51:04,644 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:51:04.000Z
+2025-04-30 00:51:04,949 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:51:04,953 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 00:51:04,953 - WARNING - Not enough data to calculate indicators
+2025-04-30 00:51:04,953 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 00:51:04,953 - INFO - Analysis job completed
+2025-04-30 00:51:04,953 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 00:56:02 CEST)" executed successfully
+2025-04-30 00:56:02,072 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:01:02 CEST)" (scheduled at 2025-04-30 00:56:02.071165+02:00)
+2025-04-30 00:56:02,108 - INFO - Starting analysis job
+2025-04-30 00:56:02,109 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T14:56:02.000Z
+2025-04-30 00:56:02,554 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 00:56:02,559 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T04:56:02.000Z
+2025-04-30 00:56:02,810 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 00:56:02,815 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T08:56:02.000Z
+2025-04-30 00:56:03,062 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 00:56:03,067 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T16:56:03.000Z
+2025-04-30 00:56:03,311 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 00:56:03,316 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:56:03.000Z
+2025-04-30 00:56:03,602 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:56:03,608 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:56:03.000Z
+2025-04-30 00:56:03,962 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:56:03,967 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 00:56:03,967 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T08:56:03.000Z
+2025-04-30 00:56:04,264 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 00:56:04,272 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 00:56:04,272 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T00:56:04.000Z
+2025-04-30 00:56:04,574 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 00:56:04,579 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 00:56:04,580 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T00:56:04.000Z
+2025-04-30 00:56:04,819 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 00:56:04,823 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 00:56:04,823 - WARNING - Not enough data to calculate indicators
+2025-04-30 00:56:04,824 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 00:56:04,824 - INFO - Analysis job completed
+2025-04-30 00:56:04,824 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:01:02 CEST)" executed successfully
+2025-04-30 01:01:02,073 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:06:02 CEST)" (scheduled at 2025-04-30 01:01:02.071165+02:00)
+2025-04-30 01:01:02,105 - INFO - Starting analysis job
+2025-04-30 01:01:02,105 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T15:01:02.000Z
+2025-04-30 01:01:02,466 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 01:01:02,471 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T05:01:02.000Z
+2025-04-30 01:01:02,720 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 01:01:02,725 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T09:01:02.000Z
+2025-04-30 01:01:02,969 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 01:01:02,974 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T17:01:02.000Z
+2025-04-30 01:01:03,290 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 01:01:03,295 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:01:03.000Z
+2025-04-30 01:01:03,602 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:01:03,607 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:01:03.000Z
+2025-04-30 01:01:03,902 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:01:03,907 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 01:01:03,907 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:01:03.000Z
+2025-04-30 01:01:04,146 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:01:04,155 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 01:01:04,155 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T01:01:04.000Z
+2025-04-30 01:01:04,518 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 01:01:04,523 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 01:01:04,523 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:01:04.000Z
+2025-04-30 01:01:04,823 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:01:04,828 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 01:01:04,828 - WARNING - Not enough data to calculate indicators
+2025-04-30 01:01:04,828 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 01:01:04,828 - INFO - Analysis job completed
+2025-04-30 01:01:04,828 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:06:02 CEST)" executed successfully
+2025-04-30 01:06:02,076 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:11:02 CEST)" (scheduled at 2025-04-30 01:06:02.071165+02:00)
+2025-04-30 01:06:02,109 - INFO - Starting analysis job
+2025-04-30 01:06:02,110 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T15:06:02.000Z
+2025-04-30 01:06:02,442 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 01:06:02,448 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T05:06:02.000Z
+2025-04-30 01:06:02,720 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 01:06:02,726 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T09:06:02.000Z
+2025-04-30 01:06:02,977 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 01:06:02,982 - INFO - Signal detected: OVERSOLD (Price: 145.7400, RSI: 32.93)
+2025-04-30 01:06:02,983 - ERROR - Error analyzing 1h timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:06:02,983 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T17:06:02.000Z
+2025-04-30 01:06:03,227 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 01:06:03,232 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:06:03.000Z
+2025-04-30 01:06:03,632 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:06:03,637 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:06:03.000Z
+2025-04-30 01:06:03,922 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:06:03,927 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 01:06:03,927 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:06:03.000Z
+2025-04-30 01:06:04,637 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:06:04,646 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 01:06:04,646 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T01:06:04.000Z
+2025-04-30 01:06:04,886 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 01:06:04,890 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 01:06:04,891 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:06:04.000Z
+2025-04-30 01:06:05,645 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:06:05,649 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 01:06:05,649 - WARNING - Not enough data to calculate indicators
+2025-04-30 01:06:05,649 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 01:06:05,649 - INFO - Analysis job completed
+2025-04-30 01:06:05,649 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:11:02 CEST)" executed successfully
+2025-04-30 01:11:02,074 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:16:02 CEST)" (scheduled at 2025-04-30 01:11:02.071165+02:00)
+2025-04-30 01:11:02,100 - INFO - Starting analysis job
+2025-04-30 01:11:02,101 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T15:11:02.000Z
+2025-04-30 01:11:02,824 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 01:11:02,830 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T05:11:02.000Z
+2025-04-30 01:11:03,090 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 01:11:03,096 - INFO - Signal detected: OVERSOLD (Price: 145.2900, RSI: 28.42)
+2025-04-30 01:11:03,096 - ERROR - Error analyzing 30min timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:11:03,097 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T09:11:03.000Z
+2025-04-30 01:11:03,374 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 01:11:03,379 - INFO - Signal detected: OVERSOLD (Price: 145.2900, RSI: 31.49)
+2025-04-30 01:11:03,379 - ERROR - Error analyzing 1h timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:11:03,380 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T17:11:03.000Z
+2025-04-30 01:11:03,770 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 01:11:03,775 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:11:03.000Z
+2025-04-30 01:11:04,033 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:11:04,080 - INFO - Signal detected: OVERSOLD (Price: 145.2900, RSI: 41.91)
+2025-04-30 01:11:04,080 - ERROR - Error analyzing 4h timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:11:04,080 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:11:04.000Z
+2025-04-30 01:11:04,779 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:11:04,784 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 01:11:04,784 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:11:04.000Z
+2025-04-30 01:11:05,493 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:11:05,501 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 01:11:05,501 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T01:11:05.000Z
+2025-04-30 01:11:05,751 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 01:11:05,755 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 01:11:05,756 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:11:05.000Z
+2025-04-30 01:11:06,116 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:11:06,120 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 01:11:06,120 - WARNING - Not enough data to calculate indicators
+2025-04-30 01:11:06,120 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 01:11:06,120 - INFO - Analysis job completed
+2025-04-30 01:11:06,120 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:16:02 CEST)" executed successfully
+2025-04-30 01:16:02,076 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:21:02 CEST)" (scheduled at 2025-04-30 01:16:02.071165+02:00)
+2025-04-30 01:16:02,091 - INFO - Starting analysis job
+2025-04-30 01:16:02,092 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T15:16:02.000Z
+2025-04-30 01:16:02,469 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 01:16:02,474 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T05:16:02.000Z
+2025-04-30 01:16:02,738 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 01:16:02,743 - INFO - Signal detected: OVERSOLD (Price: 145.3000, RSI: 28.45)
+2025-04-30 01:16:02,744 - ERROR - Error analyzing 30min timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:16:02,744 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T09:16:02.000Z
+2025-04-30 01:16:02,992 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 01:16:02,996 - INFO - Signal detected: OVERSOLD (Price: 145.3000, RSI: 31.52)
+2025-04-30 01:16:02,997 - ERROR - Error analyzing 1h timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:16:02,997 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T17:16:02.000Z
+2025-04-30 01:16:03,263 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 01:16:03,268 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:16:03.000Z
+2025-04-30 01:16:03,547 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:16:03,552 - INFO - Signal detected: OVERSOLD (Price: 145.2800, RSI: 41.89)
+2025-04-30 01:16:03,552 - ERROR - Error analyzing 4h timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:16:03,552 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:16:03.000Z
+2025-04-30 01:16:03,894 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:16:03,899 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 01:16:03,899 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:16:03.000Z
+2025-04-30 01:16:04,160 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:16:04,169 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 01:16:04,169 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T01:16:04.000Z
+2025-04-30 01:16:04,516 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 01:16:04,521 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 01:16:04,521 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:16:04.000Z
+2025-04-30 01:16:04,822 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:16:04,826 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 01:16:04,826 - WARNING - Not enough data to calculate indicators
+2025-04-30 01:16:04,826 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 01:16:04,826 - INFO - Analysis job completed
+2025-04-30 01:16:04,826 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:21:02 CEST)" executed successfully
+2025-04-30 01:21:02,072 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:26:02 CEST)" (scheduled at 2025-04-30 01:21:02.071165+02:00)
+2025-04-30 01:21:02,104 - INFO - Starting analysis job
+2025-04-30 01:21:02,104 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T15:21:02.000Z
+2025-04-30 01:21:02,947 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 01:21:02,952 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T05:21:02.000Z
+2025-04-30 01:21:03,264 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 01:21:03,269 - INFO - Signal detected: OVERSOLD (Price: 145.1000, RSI: 27.80)
+2025-04-30 01:21:03,269 - ERROR - Error analyzing 30min timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:21:03,269 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T09:21:03.000Z
+2025-04-30 01:21:03,742 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 01:21:03,747 - INFO - Signal detected: OVERSOLD (Price: 145.1000, RSI: 30.92)
+2025-04-30 01:21:03,748 - ERROR - Error analyzing 1h timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:21:03,748 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T17:21:03.000Z
+2025-04-30 01:21:04,136 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 01:21:04,141 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:21:04.000Z
+2025-04-30 01:21:04,385 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:21:04,389 - INFO - Signal detected: OVERSOLD (Price: 145.1200, RSI: 41.60)
+2025-04-30 01:21:04,390 - ERROR - Error analyzing 4h timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:21:04,390 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:21:04.000Z
+2025-04-30 01:21:04,755 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:21:04,759 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 01:21:04,760 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:21:04.000Z
+2025-04-30 01:21:05,014 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:21:05,023 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 01:21:05,023 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T01:21:05.000Z
+2025-04-30 01:21:05,265 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 01:21:05,270 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 01:21:05,270 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:21:05.000Z
+2025-04-30 01:21:05,574 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:21:05,578 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 01:21:05,578 - WARNING - Not enough data to calculate indicators
+2025-04-30 01:21:05,578 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 01:21:05,578 - INFO - Analysis job completed
+2025-04-30 01:21:05,579 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:26:02 CEST)" executed successfully
+2025-04-30 01:26:02,072 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:31:02 CEST)" (scheduled at 2025-04-30 01:26:02.071165+02:00)
+2025-04-30 01:26:02,087 - INFO - Starting analysis job
+2025-04-30 01:26:02,087 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T15:26:02.000Z
+2025-04-30 01:26:02,550 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 01:26:02,555 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T05:26:02.000Z
+2025-04-30 01:26:02,811 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 01:26:02,818 - INFO - Signal detected: OVERSOLD (Price: 145.2200, RSI: 28.19)
+2025-04-30 01:26:02,818 - ERROR - Error analyzing 30min timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:26:02,819 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T09:26:02.000Z
+2025-04-30 01:26:03,083 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 01:26:03,088 - INFO - Signal detected: OVERSOLD (Price: 145.2300, RSI: 31.30)
+2025-04-30 01:26:03,088 - ERROR - Error analyzing 1h timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:26:03,089 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T17:26:03.000Z
+2025-04-30 01:26:03,470 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 01:26:03,475 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:26:03.000Z
+2025-04-30 01:26:03,775 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:26:03,779 - INFO - Signal detected: OVERSOLD (Price: 145.2300, RSI: 41.80)
+2025-04-30 01:26:03,780 - ERROR - Error analyzing 4h timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:26:03,780 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:26:03.000Z
+2025-04-30 01:26:04,035 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:26:04,041 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 01:26:04,041 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:26:04.000Z
+2025-04-30 01:26:04,284 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:26:04,292 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 01:26:04,292 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T01:26:04.000Z
+2025-04-30 01:26:04,535 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 01:26:04,540 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 01:26:04,540 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:26:04.000Z
+2025-04-30 01:26:05,023 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:26:05,028 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 01:26:05,028 - WARNING - Not enough data to calculate indicators
+2025-04-30 01:26:05,028 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 01:26:05,028 - INFO - Analysis job completed
+2025-04-30 01:26:05,028 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:31:02 CEST)" executed successfully
+2025-04-30 01:31:02,075 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:36:02 CEST)" (scheduled at 2025-04-30 01:31:02.071165+02:00)
+2025-04-30 01:31:02,075 - INFO - Starting analysis job
+2025-04-30 01:31:02,076 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T15:31:02.000Z
+2025-04-30 01:31:02,594 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 01:31:02,599 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T05:31:02.000Z
+2025-04-30 01:31:02,858 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 01:31:02,863 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T09:31:02.000Z
+2025-04-30 01:31:03,119 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 01:31:03,124 - INFO - Signal detected: OVERSOLD (Price: 145.5500, RSI: 32.30)
+2025-04-30 01:31:03,124 - ERROR - Error analyzing 1h timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:31:03,125 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T17:31:03.000Z
+2025-04-30 01:31:03,385 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 01:31:03,390 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:31:03.000Z
+2025-04-30 01:31:03,713 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:31:03,718 - INFO - Signal detected: OVERSOLD (Price: 145.5200, RSI: 42.33)
+2025-04-30 01:31:03,719 - ERROR - Error analyzing 4h timeframe: cannot access local variable 'chart_path' where it is not associated with a value
+2025-04-30 01:31:03,719 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:31:03.000Z
+2025-04-30 01:31:04,017 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:31:04,022 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 01:31:04,022 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:31:04.000Z
+2025-04-30 01:31:04,326 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:31:04,335 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 01:31:04,335 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T01:31:04.000Z
+2025-04-30 01:31:04,635 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 01:31:04,639 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 01:31:04,640 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:31:04.000Z
+2025-04-30 01:31:04,938 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:31:04,942 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 01:31:04,943 - WARNING - Not enough data to calculate indicators
+2025-04-30 01:31:04,943 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 01:31:04,943 - INFO - Analysis job completed
+2025-04-30 01:31:04,943 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:36:02 CEST)" executed successfully
+2025-04-30 01:36:02,072 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:41:02 CEST)" (scheduled at 2025-04-30 01:36:02.071165+02:00)
+2025-04-30 01:36:02,072 - INFO - Starting analysis job
+2025-04-30 01:36:02,072 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T15:36:02.000Z
+2025-04-30 01:36:02,448 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 01:36:02,454 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T05:36:02.000Z
+2025-04-30 01:36:02,706 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 01:36:02,711 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T09:36:02.000Z
+2025-04-30 01:36:02,960 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 01:36:02,965 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T17:36:02.000Z
+2025-04-30 01:36:03,236 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 01:36:03,241 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:36:03.000Z
+2025-04-30 01:36:03,483 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:36:03,488 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:36:03.000Z
+2025-04-30 01:36:03,729 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:36:03,734 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 01:36:03,734 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:36:03.000Z
+2025-04-30 01:36:04,055 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:36:04,063 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 01:36:04,063 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T01:36:04.000Z
+2025-04-30 01:36:04,304 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 01:36:04,309 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 01:36:04,310 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:36:04.000Z
+2025-04-30 01:36:04,671 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:36:04,676 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 01:36:04,676 - WARNING - Not enough data to calculate indicators
+2025-04-30 01:36:04,676 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 01:36:04,676 - INFO - Analysis job completed
+2025-04-30 01:36:04,676 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:41:02 CEST)" executed successfully
+2025-04-30 01:41:02,074 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:46:02 CEST)" (scheduled at 2025-04-30 01:41:02.071165+02:00)
+2025-04-30 01:41:02,083 - INFO - Starting analysis job
+2025-04-30 01:41:02,083 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T15:41:02.000Z
+2025-04-30 01:41:02,407 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 01:41:02,412 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T05:41:02.000Z
+2025-04-30 01:41:02,773 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 01:41:02,779 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T09:41:02.000Z
+2025-04-30 01:41:03,076 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 01:41:03,081 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T17:41:03.000Z
+2025-04-30 01:41:03,398 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 01:41:03,403 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:41:03.000Z
+2025-04-30 01:41:03,690 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:41:03,695 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:41:03.000Z
+2025-04-30 01:41:03,967 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:41:03,974 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 01:41:03,975 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:41:03.000Z
+2025-04-30 01:41:04,316 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:41:04,324 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 01:41:04,324 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T01:41:04.000Z
+2025-04-30 01:41:04,568 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 01:41:04,572 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 01:41:04,573 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:41:04.000Z
+2025-04-30 01:41:04,815 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:41:04,819 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 01:41:04,819 - WARNING - Not enough data to calculate indicators
+2025-04-30 01:41:04,819 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 01:41:04,819 - INFO - Analysis job completed
+2025-04-30 01:41:04,819 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:46:02 CEST)" executed successfully
+2025-04-30 01:46:02,075 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:51:02 CEST)" (scheduled at 2025-04-30 01:46:02.071165+02:00)
+2025-04-30 01:46:02,145 - INFO - Starting analysis job
+2025-04-30 01:46:02,146 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T15:46:02.000Z
+2025-04-30 01:46:02,495 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 01:46:02,508 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T05:46:02.000Z
+2025-04-30 01:46:02,763 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 01:46:02,768 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T09:46:02.000Z
+2025-04-30 01:46:03,055 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 01:46:03,061 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T17:46:03.000Z
+2025-04-30 01:46:03,303 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 01:46:03,309 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:46:03.000Z
+2025-04-30 01:46:03,681 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:46:03,686 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:46:03.000Z
+2025-04-30 01:46:03,928 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:46:03,933 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 01:46:03,933 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:46:03.000Z
+2025-04-30 01:46:04,171 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:46:04,184 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 01:46:04,185 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T01:46:04.000Z
+2025-04-30 01:46:04,486 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 01:46:04,491 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 01:46:04,492 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:46:04.000Z
+2025-04-30 01:46:04,782 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:46:04,787 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 01:46:04,787 - WARNING - Not enough data to calculate indicators
+2025-04-30 01:46:04,787 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 01:46:04,787 - INFO - Analysis job completed
+2025-04-30 01:46:04,787 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:51:02 CEST)" executed successfully
+2025-04-30 01:51:02,074 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:56:02 CEST)" (scheduled at 2025-04-30 01:51:02.071165+02:00)
+2025-04-30 01:51:02,083 - INFO - Starting analysis job
+2025-04-30 01:51:02,083 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T15:51:02.000Z
+2025-04-30 01:51:02,610 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 01:51:02,615 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T05:51:02.000Z
+2025-04-30 01:51:02,878 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 01:51:02,883 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T09:51:02.000Z
+2025-04-30 01:51:03,197 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 01:51:03,203 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T17:51:03.000Z
+2025-04-30 01:51:03,511 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 01:51:03,516 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:51:03.000Z
+2025-04-30 01:51:03,920 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:51:03,925 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:51:03.000Z
+2025-04-30 01:51:04,218 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:51:04,224 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 01:51:04,225 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:51:04.000Z
+2025-04-30 01:51:04,525 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:51:04,534 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 01:51:04,535 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T01:51:04.000Z
+2025-04-30 01:51:04,833 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 01:51:04,838 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 01:51:04,838 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:51:04.000Z
+2025-04-30 01:51:05,137 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:51:05,141 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 01:51:05,141 - WARNING - Not enough data to calculate indicators
+2025-04-30 01:51:05,142 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 01:51:05,142 - INFO - Analysis job completed
+2025-04-30 01:51:05,142 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 01:56:02 CEST)" executed successfully
+2025-04-30 01:56:02,071 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:01:02 CEST)" (scheduled at 2025-04-30 01:56:02.071165+02:00)
+2025-04-30 01:56:02,119 - INFO - Starting analysis job
+2025-04-30 01:56:02,119 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T15:56:02.000Z
+2025-04-30 01:56:02,526 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 01:56:02,532 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T05:56:02.000Z
+2025-04-30 01:56:02,781 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 01:56:02,786 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T09:56:02.000Z
+2025-04-30 01:56:03,063 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 01:56:03,068 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T17:56:03.000Z
+2025-04-30 01:56:03,312 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 01:56:03,317 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:56:03.000Z
+2025-04-30 01:56:03,637 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:56:03,646 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:56:03.000Z
+2025-04-30 01:56:03,890 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:56:03,899 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 01:56:03,899 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T09:56:03.000Z
+2025-04-30 01:56:04,140 - INFO - Fetched 81 OHLCV records for 4h timeframe
+2025-04-30 01:56:04,153 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 01:56:04,153 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T01:56:04.000Z
+2025-04-30 01:56:04,455 - INFO - Fetched 53 OHLCV records for 12h timeframe
+2025-04-30 01:56:04,461 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 01:56:04,461 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T01:56:04.000Z
+2025-04-30 01:56:04,702 - INFO - Fetched 67 OHLCV records for 6h timeframe
+2025-04-30 01:56:04,707 - WARNING - Insufficient data for 12h timeframe (only 34 candles)
+2025-04-30 01:56:04,707 - WARNING - Not enough data to calculate indicators
+2025-04-30 01:56:04,707 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 01:56:04,707 - INFO - Analysis job completed
+2025-04-30 01:56:04,707 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:01:02 CEST)" executed successfully
+2025-04-30 02:01:02,074 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:06:02 CEST)" (scheduled at 2025-04-30 02:01:02.071165+02:00)
+2025-04-30 02:01:02,146 - INFO - Starting analysis job
+2025-04-30 02:01:02,148 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T16:01:02.000Z
+2025-04-30 02:01:02,617 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 02:01:02,623 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T06:01:02.000Z
+2025-04-30 02:01:02,969 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 02:01:02,974 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T10:01:02.000Z
+2025-04-30 02:01:03,223 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 02:01:03,230 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T18:01:03.000Z
+2025-04-30 02:01:03,479 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 02:01:03,485 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:01:03.000Z
+2025-04-30 02:01:03,779 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:01:03,785 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:01:03.000Z
+2025-04-30 02:01:04,087 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:01:04,091 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 02:01:04,093 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:01:04.000Z
+2025-04-30 02:01:04,332 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:01:04,341 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 02:01:04,342 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T02:01:04.000Z
+2025-04-30 02:01:04,697 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 02:01:04,703 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 02:01:04,704 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:01:04.000Z
+2025-04-30 02:01:05,113 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:01:05,119 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 02:01:05,119 - WARNING - Not enough data to calculate indicators
+2025-04-30 02:01:05,119 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 02:01:05,119 - INFO - Analysis job completed
+2025-04-30 02:01:05,120 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:06:02 CEST)" executed successfully
+2025-04-30 02:06:02,074 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:11:02 CEST)" (scheduled at 2025-04-30 02:06:02.071165+02:00)
+2025-04-30 02:06:02,095 - INFO - Starting analysis job
+2025-04-30 02:06:02,095 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T16:06:02.000Z
+2025-04-30 02:06:02,515 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 02:06:02,532 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T06:06:02.000Z
+2025-04-30 02:06:02,801 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 02:06:02,807 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T10:06:02.000Z
+2025-04-30 02:06:03,061 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 02:06:03,067 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T18:06:03.000Z
+2025-04-30 02:06:03,330 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 02:06:03,407 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:06:03.000Z
+2025-04-30 02:06:03,655 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:06:03,665 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:06:03.000Z
+2025-04-30 02:06:03,914 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:06:03,986 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 02:06:03,987 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:06:03.000Z
+2025-04-30 02:06:04,245 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:06:04,349 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 02:06:04,350 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T02:06:04.000Z
+2025-04-30 02:06:04,592 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 02:06:04,599 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 02:06:04,599 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:06:04.000Z
+2025-04-30 02:06:04,839 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:06:04,845 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 02:06:04,846 - WARNING - Not enough data to calculate indicators
+2025-04-30 02:06:04,846 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 02:06:04,846 - INFO - Analysis job completed
+2025-04-30 02:06:04,846 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:11:02 CEST)" executed successfully
+2025-04-30 02:11:02,083 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:16:02 CEST)" (scheduled at 2025-04-30 02:11:02.071165+02:00)
+2025-04-30 02:11:02,127 - INFO - Starting analysis job
+2025-04-30 02:11:02,129 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T16:11:02.000Z
+2025-04-30 02:11:02,455 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 02:11:02,460 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T06:11:02.000Z
+2025-04-30 02:11:02,753 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 02:11:02,759 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T10:11:02.000Z
+2025-04-30 02:11:03,058 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 02:11:03,063 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T18:11:03.000Z
+2025-04-30 02:11:03,367 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 02:11:03,372 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:11:03.000Z
+2025-04-30 02:11:03,668 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:11:03,673 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:11:03.000Z
+2025-04-30 02:11:03,914 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:11:03,919 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 02:11:03,920 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:11:03.000Z
+2025-04-30 02:11:04,159 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:11:04,167 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 02:11:04,168 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T02:11:04.000Z
+2025-04-30 02:11:04,409 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 02:11:04,414 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 02:11:04,414 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:11:04.000Z
+2025-04-30 02:11:04,725 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:11:04,729 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 02:11:04,729 - WARNING - Not enough data to calculate indicators
+2025-04-30 02:11:04,729 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 02:11:04,729 - INFO - Analysis job completed
+2025-04-30 02:11:04,729 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:16:02 CEST)" executed successfully
+2025-04-30 02:16:02,074 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:21:02 CEST)" (scheduled at 2025-04-30 02:16:02.071165+02:00)
+2025-04-30 02:16:02,116 - INFO - Starting analysis job
+2025-04-30 02:16:02,117 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T16:16:02.000Z
+2025-04-30 02:16:02,615 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 02:16:02,634 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T06:16:02.000Z
+2025-04-30 02:16:02,909 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 02:16:02,929 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T10:16:02.000Z
+2025-04-30 02:16:03,193 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 02:16:03,206 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T18:16:03.000Z
+2025-04-30 02:16:03,448 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 02:16:03,459 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:16:03.000Z
+2025-04-30 02:16:03,718 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:16:03,723 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:16:03.000Z
+2025-04-30 02:16:03,964 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:16:03,970 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 02:16:03,970 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:16:03.000Z
+2025-04-30 02:16:04,212 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:16:04,229 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 02:16:04,229 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T02:16:04.000Z
+2025-04-30 02:16:04,472 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 02:16:04,477 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 02:16:04,478 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:16:04.000Z
+2025-04-30 02:16:04,742 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:16:04,751 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 02:16:04,751 - WARNING - Not enough data to calculate indicators
+2025-04-30 02:16:04,751 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 02:16:04,751 - INFO - Analysis job completed
+2025-04-30 02:16:04,751 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:21:02 CEST)" executed successfully
+2025-04-30 02:21:02,088 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:26:02 CEST)" (scheduled at 2025-04-30 02:21:02.071165+02:00)
+2025-04-30 02:21:02,156 - INFO - Starting analysis job
+2025-04-30 02:21:02,158 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T16:21:02.000Z
+2025-04-30 02:21:02,651 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 02:21:02,659 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T06:21:02.000Z
+2025-04-30 02:21:02,926 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 02:21:02,935 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T10:21:02.000Z
+2025-04-30 02:21:03,196 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 02:21:03,209 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T18:21:03.000Z
+2025-04-30 02:21:03,535 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 02:21:03,542 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:21:03.000Z
+2025-04-30 02:21:03,785 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:21:03,792 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:21:03.000Z
+2025-04-30 02:21:04,041 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:21:04,047 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 02:21:04,048 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:21:04.000Z
+2025-04-30 02:21:04,288 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:21:04,298 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 02:21:04,299 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T02:21:04.000Z
+2025-04-30 02:21:04,658 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 02:21:04,671 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 02:21:04,672 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:21:04.000Z
+2025-04-30 02:21:04,975 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:21:04,982 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 02:21:04,982 - WARNING - Not enough data to calculate indicators
+2025-04-30 02:21:04,982 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 02:21:04,983 - INFO - Analysis job completed
+2025-04-30 02:21:04,983 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:26:02 CEST)" executed successfully
+2025-04-30 02:26:02,074 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:31:02 CEST)" (scheduled at 2025-04-30 02:26:02.071165+02:00)
+2025-04-30 02:26:02,118 - INFO - Starting analysis job
+2025-04-30 02:26:02,119 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T16:26:02.000Z
+2025-04-30 02:26:02,995 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 02:26:03,025 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T06:26:03.000Z
+2025-04-30 02:26:03,480 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 02:26:03,500 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T10:26:03.000Z
+2025-04-30 02:26:04,045 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 02:26:04,075 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T18:26:04.000Z
+2025-04-30 02:26:04,535 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 02:26:04,552 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:26:04.000Z
+2025-04-30 02:26:05,045 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:26:05,065 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:26:05.000Z
+2025-04-30 02:26:05,622 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:26:05,640 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 02:26:05,648 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:26:05.000Z
+2025-04-30 02:26:06,313 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:26:06,371 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 02:26:06,375 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T02:26:06.000Z
+2025-04-30 02:26:07,192 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 02:26:07,215 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 02:26:07,218 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:26:07.000Z
+2025-04-30 02:26:07,667 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:26:07,679 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 02:26:07,679 - WARNING - Not enough data to calculate indicators
+2025-04-30 02:26:07,679 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 02:26:07,679 - INFO - Analysis job completed
+2025-04-30 02:26:07,680 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:31:02 CEST)" executed successfully
+2025-04-30 02:31:02,077 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:36:02 CEST)" (scheduled at 2025-04-30 02:31:02.071165+02:00)
+2025-04-30 02:31:02,150 - INFO - Starting analysis job
+2025-04-30 02:31:02,156 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T16:31:02.000Z
+2025-04-30 02:31:02,552 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 02:31:02,594 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T06:31:02.000Z
+2025-04-30 02:31:02,877 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 02:31:02,896 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T10:31:02.000Z
+2025-04-30 02:31:03,193 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 02:31:03,212 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T18:31:03.000Z
+2025-04-30 02:31:03,469 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 02:31:03,487 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:31:03.000Z
+2025-04-30 02:31:03,769 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:31:03,805 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:31:03.000Z
+2025-04-30 02:31:04,059 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:31:04,105 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 02:31:04,125 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:31:04.000Z
+2025-04-30 02:31:04,449 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:31:04,595 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 02:31:04,597 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T02:31:04.000Z
+2025-04-30 02:31:04,921 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 02:31:04,951 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 02:31:04,952 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:31:04.000Z
+2025-04-30 02:31:05,201 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:31:05,208 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 02:31:05,208 - WARNING - Not enough data to calculate indicators
+2025-04-30 02:31:05,209 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 02:31:05,209 - INFO - Analysis job completed
+2025-04-30 02:31:05,209 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:36:02 CEST)" executed successfully
+2025-04-30 02:36:02,074 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:41:02 CEST)" (scheduled at 2025-04-30 02:36:02.071165+02:00)
+2025-04-30 02:36:02,074 - INFO - Starting analysis job
+2025-04-30 02:36:02,075 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T16:36:02.000Z
+2025-04-30 02:36:02,451 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 02:36:02,459 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T06:36:02.000Z
+2025-04-30 02:36:02,714 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 02:36:02,723 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T10:36:02.000Z
+2025-04-30 02:36:03,003 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 02:36:03,008 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T18:36:03.000Z
+2025-04-30 02:36:03,309 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 02:36:03,315 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:36:03.000Z
+2025-04-30 02:36:03,619 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:36:03,624 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:36:03.000Z
+2025-04-30 02:36:03,864 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:36:03,868 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 02:36:03,869 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:36:03.000Z
+2025-04-30 02:36:04,163 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:36:04,171 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 02:36:04,172 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T02:36:04.000Z
+2025-04-30 02:36:04,441 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 02:36:04,448 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 02:36:04,448 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:36:04.000Z
+2025-04-30 02:36:04,743 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:36:04,747 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 02:36:04,747 - WARNING - Not enough data to calculate indicators
+2025-04-30 02:36:04,748 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 02:36:04,748 - INFO - Analysis job completed
+2025-04-30 02:36:04,748 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:41:02 CEST)" executed successfully
+2025-04-30 02:41:02,073 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:46:02 CEST)" (scheduled at 2025-04-30 02:41:02.071165+02:00)
+2025-04-30 02:41:02,091 - INFO - Starting analysis job
+2025-04-30 02:41:02,092 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T16:41:02.000Z
+2025-04-30 02:41:02,419 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 02:41:02,424 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T06:41:02.000Z
+2025-04-30 02:41:02,672 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 02:41:02,677 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T10:41:02.000Z
+2025-04-30 02:41:02,925 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 02:41:02,930 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T18:41:02.000Z
+2025-04-30 02:41:03,246 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 02:41:03,251 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:41:03.000Z
+2025-04-30 02:41:03,551 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:41:03,556 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:41:03.000Z
+2025-04-30 02:41:03,857 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:41:03,862 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 02:41:03,862 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:41:03.000Z
+2025-04-30 02:41:04,267 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:41:04,275 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 02:41:04,275 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T02:41:04.000Z
+2025-04-30 02:41:04,573 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 02:41:04,578 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 02:41:04,578 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:41:04.000Z
+2025-04-30 02:41:04,882 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:41:04,886 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 02:41:04,886 - WARNING - Not enough data to calculate indicators
+2025-04-30 02:41:04,887 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 02:41:04,887 - INFO - Analysis job completed
+2025-04-30 02:41:04,887 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:46:02 CEST)" executed successfully
+2025-04-30 02:46:02,076 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:51:02 CEST)" (scheduled at 2025-04-30 02:46:02.071165+02:00)
+2025-04-30 02:46:02,208 - INFO - Starting analysis job
+2025-04-30 02:46:02,210 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T16:46:02.000Z
+2025-04-30 02:46:02,567 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 02:46:02,685 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T06:46:02.000Z
+2025-04-30 02:46:03,049 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 02:46:03,131 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T10:46:03.000Z
+2025-04-30 02:46:03,834 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 02:46:03,851 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T18:46:03.000Z
+2025-04-30 02:46:04,199 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 02:46:04,208 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:46:04.000Z
+2025-04-30 02:46:04,448 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:46:04,493 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:46:04.000Z
+2025-04-30 02:46:04,836 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:46:04,843 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 02:46:04,843 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:46:04.000Z
+2025-04-30 02:46:05,149 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:46:05,167 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 02:46:05,167 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T02:46:05.000Z
+2025-04-30 02:46:05,475 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 02:46:05,479 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 02:46:05,480 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:46:05.000Z
+2025-04-30 02:46:05,840 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:46:05,845 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 02:46:05,846 - WARNING - Not enough data to calculate indicators
+2025-04-30 02:46:05,846 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 02:46:05,846 - INFO - Analysis job completed
+2025-04-30 02:46:05,846 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:51:02 CEST)" executed successfully
+2025-04-30 02:51:02,076 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:56:02 CEST)" (scheduled at 2025-04-30 02:51:02.071165+02:00)
+2025-04-30 02:51:02,336 - INFO - Starting analysis job
+2025-04-30 02:51:02,623 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T16:51:02.000Z
+2025-04-30 02:51:03,299 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 02:51:03,423 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T06:51:03.000Z
+2025-04-30 02:51:03,792 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 02:51:03,836 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T10:51:03.000Z
+2025-04-30 02:51:04,316 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 02:51:04,362 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T18:51:04.000Z
+2025-04-30 02:51:04,878 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 02:51:04,893 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:51:04.000Z
+2025-04-30 02:51:05,365 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:51:05,375 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:51:05.000Z
+2025-04-30 02:51:05,881 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:51:05,886 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 02:51:05,886 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:51:05.000Z
+2025-04-30 02:51:06,413 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:51:06,570 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 02:51:06,571 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T02:51:06.000Z
+2025-04-30 02:51:06,929 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 02:51:06,936 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 02:51:06,937 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:51:06.000Z
+2025-04-30 02:51:07,463 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:51:07,494 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 02:51:07,495 - WARNING - Not enough data to calculate indicators
+2025-04-30 02:51:07,495 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 02:51:07,495 - INFO - Analysis job completed
+2025-04-30 02:51:07,496 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 02:56:02 CEST)" executed successfully
+2025-04-30 02:56:02,074 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 03:01:02 CEST)" (scheduled at 2025-04-30 02:56:02.071165+02:00)
+2025-04-30 02:56:02,326 - INFO - Starting analysis job
+2025-04-30 02:56:02,328 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T16:56:02.000Z
+2025-04-30 02:56:03,206 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 02:56:03,224 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T06:56:03.000Z
+2025-04-30 02:56:03,713 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 02:56:03,730 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T10:56:03.000Z
+2025-04-30 02:56:04,231 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 02:56:04,247 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T18:56:04.000Z
+2025-04-30 02:56:04,827 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 02:56:04,848 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:56:04.000Z
+2025-04-30 02:56:05,317 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:56:05,325 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:56:05.000Z
+2025-04-30 02:56:05,796 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:56:05,826 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 02:56:05,827 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T10:56:05.000Z
+2025-04-30 02:56:06,336 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 02:56:06,393 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 02:56:06,393 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T02:56:06.000Z
+2025-04-30 02:56:06,899 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 02:56:06,911 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 02:56:06,911 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T02:56:06.000Z
+2025-04-30 02:56:07,375 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 02:56:07,380 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 02:56:07,381 - WARNING - Not enough data to calculate indicators
+2025-04-30 02:56:07,381 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 02:56:07,381 - INFO - Analysis job completed
+2025-04-30 02:56:07,381 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 03:01:02 CEST)" executed successfully
+2025-04-30 03:01:02,073 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 03:06:02 CEST)" (scheduled at 2025-04-30 03:01:02.071165+02:00)
+2025-04-30 03:01:02,590 - INFO - Starting analysis job
+2025-04-30 03:01:02,814 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T17:01:02.000Z
+2025-04-30 03:01:03,350 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 03:01:03,439 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T07:01:03.000Z
+2025-04-30 03:01:04,379 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 03:01:04,548 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T11:01:04.000Z
+2025-04-30 03:01:05,443 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 03:01:05,496 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T19:01:05.000Z
+2025-04-30 03:01:05,966 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 03:01:06,366 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T11:01:06.000Z
+2025-04-30 03:01:06,986 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 03:01:06,992 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T03:01:06.000Z
+2025-04-30 03:01:07,509 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 03:01:07,533 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 03:01:07,533 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T11:01:07.000Z
+2025-04-30 03:01:07,824 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 03:01:07,862 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 03:01:07,866 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T03:01:07.000Z
+2025-04-30 03:01:08,324 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 03:01:08,341 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 03:01:08,341 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T03:01:08.000Z
+2025-04-30 03:01:08,913 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 03:01:08,931 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 03:01:08,931 - WARNING - Not enough data to calculate indicators
+2025-04-30 03:01:08,932 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 03:01:08,933 - INFO - Analysis job completed
+2025-04-30 03:01:08,933 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 03:06:02 CEST)" executed successfully
+2025-04-30 03:06:02,072 - INFO - Running job "job (trigger: interval[0:05:00], next run at: 2025-04-30 03:11:02 CEST)" (scheduled at 2025-04-30 03:06:02.071165+02:00)
+2025-04-30 03:06:02,083 - INFO - Starting analysis job
+2025-04-30 03:06:02,083 - INFO - Fetching 712 candles for 15min timeframe since 2025-04-22T17:06:02.000Z
+2025-04-30 03:06:02,521 - INFO - Fetched 704 OHLCV records for 15min timeframe
+2025-04-30 03:06:02,527 - INFO - Fetching 376 candles for 30min timeframe since 2025-04-22T07:06:02.000Z
+2025-04-30 03:06:03,032 - INFO - Fetched 372 OHLCV records for 30min timeframe
+2025-04-30 03:06:03,038 - INFO - Fetching 208 candles for 1h timeframe since 2025-04-21T11:06:03.000Z
+2025-04-30 03:06:03,552 - INFO - Fetched 206 OHLCV records for 1h timeframe
+2025-04-30 03:06:03,557 - INFO - Fetching 124 candles for 2h timeframe since 2025-04-19T19:06:03.000Z
+2025-04-30 03:06:04,076 - INFO - Fetched 123 OHLCV records for 2h timeframe
+2025-04-30 03:06:04,081 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T11:06:04.000Z
+2025-04-30 03:06:04,605 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 03:06:04,611 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T03:06:04.000Z
+2025-04-30 03:06:05,127 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 03:06:05,131 - INFO - Not enough data for 6h, trying higher timeframe 4h
+2025-04-30 03:06:05,132 - INFO - Fetching 82 candles for 4h timeframe since 2025-04-16T11:06:05.000Z
+2025-04-30 03:06:05,655 - INFO - Fetched 82 OHLCV records for 4h timeframe
+2025-04-30 03:06:05,664 - WARNING - Still insufficient data for 6h after fallback
+2025-04-30 03:06:05,664 - INFO - Fetching 54 candles for 12h timeframe since 2025-04-03T03:06:05.000Z
+2025-04-30 03:06:06,173 - INFO - Fetched 54 OHLCV records for 12h timeframe
+2025-04-30 03:06:06,177 - INFO - Not enough data for 12h, trying higher timeframe 6h
+2025-04-30 03:06:06,178 - INFO - Fetching 68 candles for 6h timeframe since 2025-04-13T03:06:06.000Z
+2025-04-30 03:06:06,701 - INFO - Fetched 68 OHLCV records for 6h timeframe
+2025-04-30 03:06:06,705 - WARNING - Insufficient data for 12h timeframe (only 35 candles)
+2025-04-30 03:06:06,705 - WARNING - Not enough data to calculate indicators
+2025-04-30 03:06:06,705 - WARNING - Still insufficient data for 12h after fallback
+2025-04-30 03:06:06,705 - INFO - Analysis job completed
+2025-04-30 03:06:06,706 - INFO - Job "job (trigger: interval[0:05:00], next run at: 2025-04-30 03:11:02 CEST)" executed successfully
+2025-04-30 03:09:53,555 - INFO - Telegram message sent successfully to jose
+2025-04-30 03:09:54,015 - INFO - Telegram message sent successfully to jose
+2025-04-30 03:09:54,016 - INFO - Bot stopped by user
