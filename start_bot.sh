@@ -1,3 +1,4 @@
 #!/bin/bash
-cd /app
-/usr/bin/python3 bot.py
+cd ~/app
+source venv/bin/activate
+python bot.py
