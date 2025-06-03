@@ -458,6 +458,7 @@ def analyze_timeframe(timeframe):
 
         if signal:
             candle_info = ""
+            iswas = "was"
             if trigger_timestamp:
                 # Determine how many candles ago the signal occurred
                 current_last_timestamp = df.index[-1]
@@ -470,13 +471,16 @@ def analyze_timeframe(timeframe):
 
                 if candles_ago == 0:
                     candle_info = " (Current Candle)"
+                    iswas = "is"
                 elif candles_ago == 1:
                     candle_info = " (1 Candle Ago)"
+                    iswas = "was"
                 else:
                     candle_info = f" ({candles_ago} Candles Ago)"
+                    iswas = "was"
 
-            message = (f"🚨 {CONFIG['symbol']} {timeframe} 🚨\n {signal.upper()} {candle_info}🚨\n"
-                       f"Price is/was {abs(bb_pct):.2f}% {'above' if signal == 'overbought' else 'below'} BB\n"
+            message = (f"🚨 {CONFIG['symbol']} {timeframe} 🚨\n {signal.upper()} {candle_info}\n"
+                       f"Price {iswas} {abs(bb_pct):.2f}% {'above' if signal == 'overbought' else 'below'} BB\n"
                        f"Current Price: {df.iloc[-1]['close']:.4f}\n"
                        f"RSI: {df.iloc[-1]['rsi']:.2f}")
 
