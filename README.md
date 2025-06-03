@@ -107,6 +107,14 @@ Bash
 
 Your bot should now start successfully and send messages. Using a virtual environment is the cleanest and most robust way to manage Python dependencies for applications like yours on Linux systems.
 
+7. To kill the bot:
+
+Stop the systemd service:
+
+Bash
+
+    sudo systemctl stop trading_bot.service
+
 ---
 
 to copy paste:
