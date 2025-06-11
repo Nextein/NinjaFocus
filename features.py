@@ -20,19 +20,6 @@ from scipy import stats, signal
 
 from plutus.lab.fxcharts import ha_candlesticks, renko
 
-# TODO - tulipindicators.org
-# TODO - Renko Wyckoff     https://www.tradingview.com/script/9BKOIhdl-Numbers-Renko/
-# https://mboxwave.com/indicators
-# pandas_ta
-# Heikin Ashi fast: https://stackoverflow.com/questions/40613480/heiken-ashi-using-pandas-python
-# https://github.com/kylejusticemagnuson/pyti
-# https://python.stockindicators.dev/indicators/
-
-# Forex Factory forum
-# https://www.incrediblecharts.com/
-# https://www.best-metatrader-indicators.com/
-# thinkorswim platform
-
 
 class TALib:
     """
@@ -138,9 +125,6 @@ class TALib:
     def FractalHighs(self, data, **args):
         """
         Bill Williams FractalHighs.
-
-        TODO - Not implemented for options different than 3 or 5
-
         args:
             data
             window
@@ -179,11 +163,7 @@ class TALib:
 
     @classmethod
     def FractalLows(self, data, **args):
-        """ Bill Williams FractalLows.
-
-        TODO - Not implemented for options different than 3 or 5
-
-        """
+        """ Bill Williams FractalLows."""
 
         if args['window'] % 2 != 1:
             args['window'] += 1
@@ -2154,7 +2134,6 @@ class TALib:
         MACD Convergence Divergence indicator based on https://usethinkscript.com/threads/macd-divergence-indicator-for-thinkorswim.35/
 
         Assumes moving average is exponential.
-        TODO - Allow for any type of moving average.
 
         args:
             fasperiod
