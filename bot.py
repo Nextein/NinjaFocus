@@ -11,12 +11,18 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 import os
 import math
 
+# Import TALib from features.py
+from features import TALib  # Using the TALib class from the uploaded features.py
+
 # Configuration
 CONFIG = {
     'telegram_token': '7697676714:AAEA8MQBUvW_FvgDsbPk1EH2Mm9Iow4hXFw',
-    'telegram_chat_ids': ['7781869973', '6654462171'],  # List of chat IDs
-    'symbol': 'SOL/USDT',
-    'timeframes': {
+    'telegram_chat_ids': {
+        'jose': ['7781869973'],  # Jose's chat ID for Bollinger Band strategy
+        'nexus': ['6654462171']  # Nexus's chat ID for the second strategy
+    },
+    'symbol': 'SOL/USDT',  # Apply both strategies to SOL/USDT
+    'timeframes': {  # Timeframes for the Bollinger Band strategy
         '15min': '15min',
         '30min': '30min',
         '1h': '1h',
@@ -25,7 +31,8 @@ CONFIG = {
         '6h': '6h',
         '12h': '12h'
     },
-    'timeframe_priority': ['15min', '30min', '1h', '2h', '4h', '6h', '12h'],  # Order for data fetching
+    'second_strategy_timeframes': ['15m','30min', '1h', '2h', '4h', '6h', '12h', '1d'],  # Timeframes for the second strategy
+    'timeframe_priority': ['15min', '30min', '1h', '2h', '4h', '6h', '12h', '1d'],  # Order for data fetching for BB strategy
     'bb_period': 20,
     'bb_stddev': 2,
     'rsi_period': 14,
@@ -35,7 +42,7 @@ CONFIG = {
     'min_candles_for_analysis': 50,  # Minimum candles needed for reliable indicators
     'max_fetch_limit': 1000,  # Maximum candles to fetch in one request
     'required_history_days': 7,  # Days of history needed for largest timeframe
-    'lookback_candles': 3  # Number of past candles to check for a signal (including current)
+    'lookback_candles': 2  # Number of past candles to check for a signal (including current)
 }
 
 
@@ -72,11 +79,11 @@ logger = setup_logging()
 exchange = binance({'enableRateLimit': True})
 
 
-def send_telegram_message(message):
-    """Send simple text message to Telegram"""
+def send_telegram_message(message, chat_ids_to_send):
+    """Send simple text message to Telegram to specified chat IDs"""
     try:
         url = f"https://api.telegram.org/bot{CONFIG['telegram_token']}/sendMessage"
-        for chat_id in CONFIG['telegram_chat_ids']:
+        for chat_id in chat_ids_to_send:
             data = {
                 'chat_id': chat_id,
                 'text': message,
@@ -99,7 +106,8 @@ def calculate_required_candles(timeframe):
         '2h': 120,
         '4h': 240,
         '6h': 360,
-        '12h': 720
+        '12h': 720,
+        '1d': 1440  # Added '1d' for the second strategy
     }.get(timeframe, 15)  # Default to 15 minutes if timeframe not found
 
     # Calculate required candles to cover required_history_days
@@ -107,13 +115,14 @@ def calculate_required_candles(timeframe):
     required_candles = math.ceil(days_to_minutes / timeframe_mins)
 
     # Add buffer for indicator calculation and lookback
+    # Adjusted for the second strategy, assuming similar or more conservative min candles
     required_candles += max(CONFIG['bb_period'], CONFIG['rsi_period']) * 2 + CONFIG['lookback_candles']
 
     # Don't exceed exchange limits
     return min(required_candles, CONFIG['max_fetch_limit'])
 
 
-def get_ohlcv(timeframe=None, since=None):
+def get_ohlcv(timeframe=None, since=None, symbol=None):
     """Fetch OHLCV data with smart fetching strategy"""
     try:
         ccxt_timeframes = {
@@ -123,7 +132,8 @@ def get_ohlcv(timeframe=None, since=None):
             '2h': '2h',
             '4h': '4h',
             '6h': '6h',
-            '12h': '12h'
+            '12h': '12h',
+            '1d': '1d'  # Added '1d'
         }
 
         # If no timeframe specified, use the smallest one (5min)
@@ -131,6 +141,10 @@ def get_ohlcv(timeframe=None, since=None):
             timeframe = CONFIG['timeframe_priority'][0]
 
         tf = ccxt_timeframes[timeframe]
+
+        # Use the symbol from CONFIG if not provided
+        if symbol is None:
+            symbol = CONFIG['symbol']
 
         # Calculate how many candles we need
         limit = calculate_required_candles(timeframe)
@@ -144,81 +158,48 @@ def get_ohlcv(timeframe=None, since=None):
                 '2h': 120,
                 '4h': 240,
                 '6h': 360,
-                '12h': 720
-            }.get(timeframe, 15)
+                '12h': 720,
+                '1d': 1440
+            }
+            # Fetch slightly more data to ensure enough for indicator calculations
+            # The 'since' parameter needs to be in milliseconds
+            since_ms = exchange.parse8601(
+                (datetime.now() - timedelta(minutes=timeframe_mins[timeframe] * limit)).isoformat())
 
-            since = exchange.parse8601((datetime.now() - timedelta(
-                minutes=timeframe_mins * limit
-            )).strftime('%Y-%m-%d %H:%M:%S'))
-
-        logger.info(f"Fetching {limit} candles for {timeframe} timeframe since {exchange.iso8601(since)}")
-
-        ohlcv = exchange.fetch_ohlcv(CONFIG['symbol'], tf, since=since, limit=limit)
+        logger.info(f"Fetching {limit} candles for {symbol} {tf} from {datetime.fromtimestamp(since_ms / 1000)}...")
+        ohlcv = exchange.fetch_ohlcv(symbol, tf, since=since_ms, limit=limit)
         df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
         df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
-        logger.info(f"Fetched {len(df)} OHLCV records for {timeframe} timeframe")
-        return df.set_index('timestamp')
+        df.set_index('timestamp', inplace=True)
+        # Ensure numeric types
+        df[['open', 'high', 'low', 'close', 'volume']] = df[['open', 'high', 'low', 'close', 'volume']].apply(
+            pd.to_numeric)
+        logger.info(f"Fetched {len(df)} candles for {symbol} {tf}.")
+        return df
+
     except Exception as e:
-        logger.error(f"Failed to fetch OHLCV data for {timeframe}: {str(e)}")
-        raise
-
-
-def resample_data(df, timeframe):
-    """Resample data to target timeframe using modern pandas syntax"""
-    try:
-        # Convert our timeframe labels to pandas resample codes
-        resample_code = {
-            '5min': '5min',
-            '15min': '15min',
-            '1h': '1h',
-            '2h': '2h',
-            '4h': '4h',
-            '6h': '6h',
-            '12h': '12h'
-        }[timeframe]
-
-        resampled = df.resample(resample_code).agg({
-            'open': 'first',
-            'high': 'max',
-            'low': 'min',
-            'close': 'last',
-            'volume': 'sum'
-        }).dropna()
-
-        # Ensure we have enough data for analysis
-        if len(resampled) < CONFIG['min_candles_for_analysis']:
-            logger.warning(f"Insufficient data for {timeframe} timeframe (only {len(resampled)} candles)")
-            return None
-
-        logger.debug(f"Resampled data to {timeframe} timeframe ({len(resampled)} candles)")
-        return resampled
-    except Exception as e:
-        logger.error(f"Failed to resample data: {str(e)}")
-        raise
+        logger.error(f"Error fetching OHLCV data for {symbol} {timeframe}: {str(e)}")
+        return None
 
 
 def calculate_indicators(df):
-    """Calculate Bollinger Bands and RSI with data validation"""
+    """Calculate Bollinger Bands and RSI"""
     try:
-        if df is None or len(df) < CONFIG['bb_period']:
-            logger.warning("Not enough data to calculate indicators")
+        if df is None or df.empty:
+            logger.warning("Empty DataFrame for indicator calculation.")
             return None
 
         # Bollinger Bands
-        df['middle_band'] = df['close'].rolling(CONFIG['bb_period']).mean()
-        std = df['close'].rolling(CONFIG['bb_period']).std()
-        df['upper_band'] = df['middle_band'] + std * CONFIG['bb_stddev']
-        df['lower_band'] = df['middle_band'] - std * CONFIG['bb_stddev']
+        df['middle_band'] = df['close'].rolling(window=CONFIG['bb_period']).mean()
+        df['std_dev'] = df['close'].rolling(window=CONFIG['bb_period']).std()
+        df['upper_band'] = df['middle_band'] + (df['std_dev'] * CONFIG['bb_stddev'])
+        df['lower_band'] = df['middle_band'] - (df['std_dev'] * CONFIG['bb_stddev'])
 
         # RSI
         delta = df['close'].diff()
-        gain = delta.where(delta > 0, 0)
-        loss = -delta.where(delta < 0, 0)
-
-        avg_gain = gain.ewm(com=CONFIG['rsi_period'] - 1, adjust=False).mean()  # Using EWM for RSI
-        avg_loss = loss.ewm(com=CONFIG['rsi_period'] - 1, adjust=False).mean()  # Using EWM for RSI
-
-        rs = avg_gain / avg_loss
+        gain = (delta.where(delta > 0, 0)).rolling(window=CONFIG['rsi_period']).mean()
+        loss = (-delta.where(delta < 0, 0)).rolling(window=CONFIG['rsi_period']).mean()
+        rs = gain / loss
         df['rsi'] = 100 - (100 / (1 + rs))
 
         # Drop rows with NaN values (where indicators couldn't be calculated)
@@ -250,49 +231,44 @@ def check_conditions(df):
         for i in range(1, CONFIG['lookback_candles'] + 1):
             if len(df) - i < 0:  # Avoid indexing errors for very small DFs
                 break
-
             current_candle_data = df.iloc[-i]
 
             # Verify we have all required fields for this candle
             required_fields = ['open', 'high', 'low', 'close', 'upper_band', 'lower_band', 'rsi']
-            if not all(field in current_candle_data for field in required_fields):
-                logger.warning(f"Missing required fields for condition checking in candle {i} from end.")
+            if not all(field in current_candle_data.index for field in required_fields):
+                logger.error(
+                    f"Missing required fields for signal check in candle data: {current_candle_data.index.tolist()}")
                 continue  # Skip this candle if data is incomplete
 
-            candle_timestamp = current_candle_data.name.strftime('%Y-%m-%d %H:%M:%S')
-            signal = None
-            bb_percentage = 0
+            # Bollinger Band Buy Signal: Close price crosses below lower band and RSI is oversold
+            buy_signal = (
+                    current_candle_data['close'] < current_candle_data['lower_band'] and
+                    current_candle_data['rsi'] < CONFIG['rsi_oversold']
+            )
 
-            # Check for overbought condition (price touching or going above upper band, potentially with a wick)
-            # Consider high for overbought if it touched or exceeded upper band
-            if current_candle_data['high'] >= current_candle_data[
-                'upper_band']:  # and current_candle_data['rsi'] >= CONFIG['rsi_overbought']:
-                bb_percentage = ((current_candle_data['high'] - current_candle_data['upper_band']) /
-                                 current_candle_data['upper_band']) * 100
-                signal = 'overbought'
-                logger.info(
-                    f"Signal detected: {signal.upper()} at {candle_timestamp} (Price: {current_candle_data['close']:.4f}, High: {current_candle_data['high']:.4f}, Upper BB: {current_candle_data['upper_band']:.4f}, RSI: {current_candle_data['rsi']:.2f})")
-                return signal, bb_percentage, current_candle_data.name  # Return timestamp of the candle that triggered
+            # Bollinger Band Sell Signal: Close price crosses above upper band and RSI is overbought
+            sell_signal = (
+                    current_candle_data['close'] > current_candle_data['upper_band'] and
+                    current_candle_data['rsi'] > CONFIG['rsi_overbought']
+            )
 
-            # Check for oversold condition (price touching or going below lower band, potentially with a wick)
-            # Consider low for oversold if it touched or went below lower band
-            if current_candle_data['low'] <= current_candle_data[
-                'lower_band']:  # and current_candle_data['rsi'] <= CONFIG['rsi_oversold']:
-                bb_percentage = ((current_candle_data['lower_band'] - current_candle_data['low']) / current_candle_data[
-                    'lower_band']) * 100
-                signal = 'oversold'
-                logger.info(
-                    f"Signal detected: {signal.upper()} at {candle_timestamp} (Price: {current_candle_data['close']:.4f}, Low: {current_candle_data['low']:.4f}, Lower BB: {current_candle_data['lower_band']:.4f}, RSI: {current_candle_data['rsi']:.2f})")
-                return signal, bb_percentage, current_candle_data.name  # Return timestamp of the candle that triggered
+            if buy_signal:
+                logger.info(f"Buy signal detected on {df.index[-i]}")
+                return "BUY", current_candle_data, i  # Return signal type, candle data, and index from end
+            elif sell_signal:
+                logger.info(f"Sell signal detected on {df.index[-i]}")
+                return "SELL", current_candle_data, i  # Return signal type, candle data, and index from end
 
+        logger.info("No signal detected in the last lookback period.")
         return None, 0, None
     except Exception as e:
-        logger.error(f"Failed to check conditions: {str(e)}")
+        logger.error(f"Error checking conditions: {str(e)}")
         return None, 0, None
 
 
-def generate_chart(df, timeframe, signal, trigger_candle_timestamp=None):
-    """Generate dark mode candlestick chart with indicators and right padding, highlighting the trigger candle."""
+def plot_chart(df, signal_type, trigger_candle_index, timeframe):
+    """Generate and save candlestick chart with indicators and right padding, highlighting the trigger candle."""
+    image_path = os.path.join(CONFIG['log_directory'], 'trade_signal.png')
     try:
         # Validate input data
         if df is None or df.empty:
@@ -304,10 +280,9 @@ def generate_chart(df, timeframe, signal, trigger_candle_timestamp=None):
         df_display = df.iloc[-display_candles:].copy()
 
         # Verify we have required columns
-        required_cols = {'open', 'high', 'low', 'close', 'volume',
-                         'upper_band', 'middle_band', 'lower_band', 'rsi'}
+        required_cols = {'open', 'high', 'low', 'close', 'volume', 'upper_band', 'middle_band', 'lower_band', 'rsi'}
         if not required_cols.issubset(df_display.columns):
-            logger.error(f"Missing required columns in DataFrame")
+            logger.error(f"Missing required columns in DataFrame: {required_cols - set(df_display.columns)}")
             return None
 
         # Set up dark mode style
@@ -319,103 +294,88 @@ def generate_chart(df, timeframe, signal, trigger_candle_timestamp=None):
             volume='#2eb82e',  # green for volume
             ohlc='#ffffff'  # white for ohlc lines
         )
-
         style = mpf.make_mpf_style(
-            base_mpf_style='nightclouds',
+            base_mpf_style='yahoo',
             marketcolors=mc,
-            rc={
-                'axes.labelcolor': '#e0e0e0',
-                'axes.edgecolor': '#404040',
-                'xtick.color': '#b0b0b0',
-                'ytick.color': '#b0b0b0',
-                'figure.facecolor': '#121212',
-                'axes.facecolor': '#1e1e1e',
-                'grid.color': '#303030',
-                'grid.alpha': 0.3,
-                'grid.linestyle': '--',
-
-            }
+            figcolor='#1a1a1a',  # background color
+            bgcolor='#1a1a1a',  # panel background
+            gridcolor='#2b2b2b',  # grid lines
+            textcolor='#ffffff',  # text color
+            facecolor='#1a1a1a',  # axes background
+            edgecolor='#1a1a1a'  # borders
         )
 
-        # Create plots for indicators
+        # Create addplots for indicators
         apds = [
-            mpf.make_addplot(df_display[['upper_band', 'middle_band', 'lower_band']],
-                             color='#4d94ff', panel=0, alpha=0.7),
-            mpf.make_addplot(df_display['volume'],
-                             type='bar', color='#ddd', alpha=0.4, panel=1, ylabel='Volume', y_on_right=True),
-            mpf.make_addplot(df_display['rsi'],
-                             color='#b967ff', panel=1, ylabel='RSI', y_on_right=False)
-
+            mpf.make_addplot(df_display['upper_band'], color='#0077B6', panel=0, linestyle='--'),
+            mpf.make_addplot(df_display['middle_band'], color='#90E0EF', panel=0),
+            mpf.make_addplot(df_display['lower_band'], color='#0077B6', panel=0, linestyle='--'),
+            mpf.make_addplot(df_display['rsi'], panel=1, color='#FFD60A', ylim=(0, 100)),
+            mpf.make_addplot(pd.Series(CONFIG['rsi_overbought'], index=df_display.index), panel=1, color='#e74c3c',
+                             linestyle=':'),
+            mpf.make_addplot(pd.Series(CONFIG['rsi_oversold'], index=df_display.index), panel=1, color='#3dc26f',
+                             linestyle=':')
         ]
 
-        # Highlight the trigger candle if provided
-        if trigger_candle_timestamp:
-            try:
-                # Find the index of the trigger candle in the displayed DataFrame
-                trigger_idx = df_display.index.get_loc(trigger_candle_timestamp)
-                # Create a list of dictionaries for highlighting
-                highlight_candle = dict(
-                    x=[trigger_idx],
-                    y=[df_display.iloc[trigger_idx]['high'] if signal == 'overbought' else df_display.iloc[trigger_idx][
-                        'low']],
-                    marker='^' if signal == 'overbought' else 'v',
-                    markersize=20,
-                    color='yellow',  # Color for the highlight marker
-                    panel=0,
-                    type='scatter'
+        # Highlight the trigger candle
+        if signal_type and trigger_candle_index:
+            # Calculate the actual index in the df_display
+            highlight_index_in_display = len(df_display) - trigger_candle_index
+            if highlight_index_in_display >= 0:
+                highlight_color = '#FF4500' if signal_type == "SELL" else '#32CD32'  # Orange for sell, lime green for buy
+
+                # Create a list of dictionaries for `alines`
+                # We need to draw a vertical line at the exact trigger point
+                # Use the timestamp of the trigger candle
+                trigger_time = df_display.index[highlight_index_in_display]
+
+                # Create a DataFrame for `vlines` to highlight the specific candle
+                vlines_data = pd.DataFrame(index=[trigger_time], data={'val': 1})
+                apds.append(
+                    mpf.make_addplot(vlines_data['val'], type='vlines', panel=0, color=highlight_color, linestyle='-',
+                                     width=0.7, alpha=0.7)
                 )
-                apds.append(mpf.make_addplot(**highlight_candle))
-            except KeyError:
-                logger.warning(
-                    f"Trigger candle timestamp {trigger_candle_timestamp} not found in displayed data range.")
-            except Exception as e:
-                logger.error(f"Error highlighting trigger candle: {e}")
+                logger.info(
+                    f"Highlighting trigger candle at index {highlight_index_in_display} (original index {df.index[-trigger_candle_index]})")
 
-        # Generate filename with timestamp
-        filename = f'{datetime.now().strftime("%Y%m%d_%H%M%S")}_{timeframe}.png'  # Added seconds to avoid collision
-
-        # Calculate right padding (5% of total candles)
-        padding = int(len(df_display) * 0.05)
-
-        # Create the plot with proper configuration
         fig, axes = mpf.plot(
             df_display,
             type='candle',
-            addplot=apds,
             style=style,
-            volume=False,
-            title=f'\n{CONFIG["symbol"]} {timeframe} - {signal}',
-            figratio=(12, 8),
-            panel_ratios=(6, 1),
+            title=f"{CONFIG['symbol']} {timeframe} - Bollinger Bands & RSI",
+            ylabel='Price',
+            ylabel_lower='Volume',
+            volume=True,
+            addplot=apds,
             returnfig=True,
-            xlim=(0, len(df_display) + padding),  # Add right padding
-            tight_layout=True,
-            scale_padding={'left': 0.1, 'top': 0.5, 'right': 0.1, 'bottom': 0.1}
+            panel_ratios=(3, 1),
+            figscale=1.5,
+            # Adjust padding if needed, default is usually fine
+            xrotation=0  # Prevents x-axis labels from rotating
         )
 
-        # Adjust layout and save
-        fig.savefig(
-            filename,
-            dpi=100,
-            facecolor=fig.get_facecolor(),
-            bbox_inches='tight',
-            pad_inches=0.5
-        )
-        plt.close(fig)
+        # Add horizontal lines for RSI overbought/oversold levels on the RSI panel
+        axes[1].text(df_display.index[0], CONFIG['rsi_overbought'] + 2, 'Overbought', color='#e74c3c',
+                     verticalalignment='bottom')
+        axes[1].text(df_display.index[0], CONFIG['rsi_oversold'] - 2, 'Oversold', color='#3dc26f',
+                     verticalalignment='top')
 
-        logger.info(f"Successfully generated chart: {filename}")
-        return filename
+        # Save the plot
+        plt.savefig(image_path, bbox_inches='tight', dpi=100)
+        plt.close(fig)  # Close the figure to free up memory
+        logger.info(f"Chart saved to {image_path}")
+        return image_path
 
     except Exception as e:
-        logger.error(f"Chart generation failed: {str(e)}", exc_info=True)
+        logger.error(f"Error plotting chart: {str(e)}")
         return None
 
 
-def send_notification(message, image_path):
-    """Send Telegram notification with chart"""
+def send_telegram_notification_with_chart(message, image_path, chat_ids_to_send):
+    """Send Telegram notification with chart to specified chat IDs"""
     try:
         url = f"https://api.telegram.org/bot{CONFIG['telegram_token']}/sendPhoto"
-        for chat_id in CONFIG['telegram_chat_ids']:
+        for chat_id in chat_ids_to_send:
             files = {'photo': open(image_path, 'rb')}
             data = {'chat_id': chat_id, 'caption': message}
             response = requests.post(url, files=files, data=data)
@@ -423,81 +383,125 @@ def send_notification(message, image_path):
             logger.info(f"Telegram notification sent successfully to chat ID: {chat_id}")
     except Exception as e:
         logger.error(f"Failed to send Telegram notification: {str(e)}")
-        raise
+        raise  # Re-raise to ensure the error is logged and handled
     finally:
         try:
             if os.path.exists(image_path):  # Check if file exists before trying to remove
                 os.remove(image_path)
-                logger.debug(f"Removed temporary chart file: {image_path}")
+                logger.info(f"Removed chart image: {image_path}")
         except Exception as e:
-            logger.error(f"Error removing chart file {image_path}: {e}")
+            logger.error(f"Error removing chart image {image_path}: {str(e)}")
 
 
-def analyze_timeframe(timeframe):
-    """Process individual timeframe with proper data fetching"""
+def analyze_bollinger_strategy(timeframe, chat_ids):
+    """Analyzes data for Bollinger Band strategy and sends notifications."""
+    logger.info(f"Running Bollinger Band strategy for {CONFIG['symbol']} {timeframe}")
+    df = get_ohlcv(timeframe=timeframe, symbol=CONFIG['symbol'])
+    if df is None or df.empty:
+        return
+
+    df = calculate_indicators(df)
+    if df is None or df.empty:
+        return
+
+    signal_type, trigger_candle_data, trigger_candle_relative_index = check_conditions(df)
+
+    if signal_type:
+        price = trigger_candle_data['close']
+        rsi = trigger_candle_data['rsi']
+        timestamp = trigger_candle_data.name  # The timestamp is the index of the series
+
+        # Generate chart
+        chart_path = plot_chart(df, signal_type, trigger_candle_relative_index, timeframe)
+        if chart_path:
+            message = (
+                f"🚨 *{signal_type} Signal Detected!* 🚨\n"
+                f"• Symbol: {CONFIG['symbol']}\n"
+                f"• Timeframe: {timeframe}\n"
+                f"• Price: {price:.4f}\n"
+                f"• RSI: {rsi:.2f}\n"
+                f"• Time: {timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
+            )
+            send_telegram_notification_with_chart(message, chart_path, chat_ids)
+        else:
+            logger.error("Failed to generate chart for Bollinger Band strategy.")
+            message = (
+                f"🚨 *{signal_type} Signal Detected!* 🚨\n"
+                f"• Symbol: {CONFIG['symbol']}\n"
+                f"• Timeframe: {timeframe}\n"
+                f"• Price: {price:.4f}\n"
+                f"• RSI: {rsi:.2f}\n"
+                f"• Time: {timestamp.strftime('%Y-%m-%d %H:%M:%S')}\n"
+                f"_(Chart generation failed)_"
+            )
+            send_telegram_message(message, chat_ids)
+
+
+def analyze_second_strategy(timeframe, chat_ids):
+    """Analyzes data for the second strategy (reversal patterns) and sends notifications."""
+    logger.info(f"Running second strategy for {CONFIG['symbol']} {timeframe}")
+    # Fetch data for the specified symbol and timeframe
+    df = get_ohlcv(timeframe=timeframe, symbol=CONFIG['symbol'])
+    if df is None or df.empty:
+        return
+
     try:
-        # First try to fetch data for the target timeframe directly
-        df = get_ohlcv(timeframe)
-        df = calculate_indicators(df)
+        # Apply technical analysis using TALib methods from features.py
+        reversal_pattern = TALib.relativeCandlesReversalPatterns(df)
+        cycles = TALib.Cycles(df)
+        phases = TALib.relativeCandlesPhases(df)
 
-        # If we don't have enough data, try to fetch higher timeframe data
-        if df is None or len(df) < CONFIG['min_candles_for_analysis']:
-            current_idx = CONFIG['timeframe_priority'].index(timeframe)
-            if current_idx > 0:
-                higher_tf = CONFIG['timeframe_priority'][current_idx - 1]
-                logger.info(f"Not enough data for {timeframe}, trying higher timeframe {higher_tf}")
-                df = get_ohlcv(higher_tf)
-                df = resample_data(df, timeframe)
-                df = calculate_indicators(df)
+        # Check for reversal patterns indicating a signal (1 for buy, -1 for sell)
+        # We need to ensure that the last candle data is considered for the signal
+        if not reversal_pattern.empty:
+            latest_reversal_pattern = reversal_pattern.iloc[-1]
+            latest_cycles = cycles.iloc[-1]
+            latest_phases = phases.iloc[-1]
+            latest_close_price = df['close'].iloc[-1]
+            latest_timestamp = df.index[-1]
 
-        if df is None or len(df) < CONFIG['min_candles_for_analysis']:
-            logger.warning(f"Still insufficient data for {timeframe} after fallback")
-            return
+            signal_message = None
+            if latest_reversal_pattern == 1:
+                signal_message = f"🟢 *2 cycles BUY Signal Detected!* 🟢\n"
+                signal_message += f"• Symbol: {CONFIG['symbol']}\n"
+                signal_message += f"• Timeframe: {timeframe}\n"
+                signal_message += f"• Close Price: {latest_close_price:.4f}\n"
+                signal_message += f"• Reversal Pattern: BUY\n"
+                signal_message += f"• Cycles: {latest_cycles}\n"
+                signal_message += f"• Phases: {latest_phases}\n"
+                signal_message += f"• Time: {latest_timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
+            elif latest_reversal_pattern == -1:
+                signal_message = f"🔴 *2 cycles  SELL Signal Detected!* 🔴\n"
+                signal_message += f"• Symbol: {CONFIG['symbol']}\n"
+                signal_message += f"• Timeframe: {timeframe}\n"
+                signal_message += f"• Close Price: {latest_close_price:.4f}\n"
+                signal_message += f"• Reversal Pattern: SELL\n"
+                signal_message += f"• Cycles: {latest_cycles}\n"
+                signal_message += f"• Phases: {latest_phases}\n"
+                signal_message += f"• Time: {latest_timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
 
-        signal, bb_pct, trigger_timestamp = check_conditions(df)
+            if signal_message:
+                send_telegram_message(signal_message, chat_ids)
+            else:
+                logger.info(f"No signal detected for second strategy on {CONFIG['symbol']} {timeframe}.")
+        else:
+            logger.info(f"No reversal pattern data for second strategy on {CONFIG['symbol']} {timeframe}.")
 
-        if signal:
-            candle_info = ""
-            iswas = "was"
-            if trigger_timestamp:
-                # Determine how many candles ago the signal occurred
-                current_last_timestamp = df.index[-1]
-                time_diff = current_last_timestamp - trigger_timestamp
-                # Convert time_diff to a meaningful number of candles
-                timeframe_mins = {
-                    '15min': 15, '30min': 30, '1h': 60, '2h': 120, '4h': 240, '6h': 360, '12h': 720
-                }.get(timeframe, 15)
-                candles_ago = int(time_diff.total_seconds() / (timeframe_mins * 60))
-
-                if candles_ago == 0:
-                    candle_info = " (Current Candle)"
-                    iswas = "is"
-                elif candles_ago == 1:
-                    candle_info = " (1 Candle Ago)"
-                    iswas = "was"
-                else:
-                    candle_info = f" ({candles_ago} Candles Ago)"
-                    iswas = "was"
-
-            message = (f"🚨 {CONFIG['symbol']} {timeframe} 🚨\n {signal.upper()} {candle_info}\n"
-                       f"Price {iswas} {abs(bb_pct):.2f}% {'above' if signal == 'overbought' else 'below'} BB\n"
-                       f"Current Price: {df.iloc[-1]['close']:.4f}\n"
-                       f"RSI: {df.iloc[-1]['rsi']:.2f}")
-
-            chart_path = generate_chart(df, timeframe, signal, trigger_candle_timestamp=trigger_timestamp)
-            if chart_path:
-                send_notification(message, chart_path)
     except Exception as e:
-        logger.error(f"Error analyzing {timeframe} timeframe: {str(e)}")
+        logger.error(f"Error running second strategy for {CONFIG['symbol']} {timeframe}: {str(e)}")
 
 
 def job():
-    """Main job execution"""
+    """Main job to be run by the scheduler"""
+    logger.info("Starting analysis job...")
     try:
-        logger.info("Starting analysis job")
+        # Run Bollinger Band Strategy for each defined timeframe, sending to Jose
+        for timeframe in CONFIG['timeframes'].values():
+            analyze_bollinger_strategy(timeframe, CONFIG['telegram_chat_ids']['jose'])
 
-        for timeframe in CONFIG['timeframe_priority']:
-            analyze_timeframe(timeframe)
+        # Run Second Strategy for its specific timeframes, sending to Nexus
+        for timeframe in CONFIG['second_strategy_timeframes']:
+            analyze_second_strategy(timeframe, CONFIG['telegram_chat_ids']['nexus'])
 
         logger.info("Analysis job completed")
     except Exception as e:
@@ -512,16 +516,19 @@ if __name__ == "__main__":
         start_msg = (
             f"🤖 *Trading Bot Started* 🤖\n"
             f"• Symbol: {CONFIG['symbol']}\n"
-            f"• Timeframes: {', '.join(CONFIG['timeframes'].keys())}\n"
+            f"• Bollinger Timeframes: {', '.join(CONFIG['timeframes'].keys())}\n"
+            f"• Second Strategy Timeframes: {', '.join(CONFIG['second_strategy_timeframes'])}\n"
             f"• Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
         )
-        send_telegram_message(start_msg)
+        send_telegram_message(start_msg, CONFIG['telegram_chat_ids']['jose'] + CONFIG['telegram_chat_ids'][
+            'nexus'])  # Send startup to both
 
         # Initial run
         job()
 
         # Setup scheduler
         scheduler = BlockingScheduler()
+        # Schedule the job to run every 5 minutes
         scheduler.add_job(job, 'interval', minutes=5)
         logger.info("Scheduler started - running every 5 minutes")
 
@@ -533,17 +540,16 @@ if __name__ == "__main__":
             f"• Shutdown at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
             f"• Last run: {datetime.now().strftime('%H:%M:%S')}"
         )
-        send_telegram_message(shutdown_msg)
+        send_telegram_message(shutdown_msg, CONFIG['telegram_chat_ids']['jose'] + CONFIG['telegram_chat_ids'][
+            'nexus'])  # Send shutdown to both
         logger.info("Bot stopped by user")
 
     except Exception as e:
         error_msg = (
             f"❌ *Trading Bot Crashed* ❌\n"
             f"• Error: {str(e)}\n"
-            f"• Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+            f"• Crash time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
         )
-        send_telegram_message(error_msg)
-        logger.error(f"Fatal error: {str(e)}", exc_info=True)
-
-    finally:
-        logging.shutdown()
+        send_telegram_message(error_msg, CONFIG['telegram_chat_ids']['jose'] + CONFIG['telegram_chat_ids'][
+            'nexus'])  # Send crash alert to both
+        logger.error(f"Bot crashed: {str(e)}", exc_info=True)
