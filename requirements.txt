@@ -1,7 +1,8 @@
-pandas
-numpy
-matplotlib
-mplfinance
-ccxt
-datetime
-apscheduler
+requests==2.32.3
+pandas==2.2.3
+numpy==2.0.2
+matplotlib==3.9.4
+mplfinance==0.12.10b0
+ccxt==4.4.82
+datetime==5.5
+apscheduler==3.11.0

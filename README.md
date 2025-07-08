@@ -95,13 +95,12 @@ Save and Exit Nano: Press `Ctrl+X`, then `Y`, then `Enter`.
 5. Reload systemd and Restart Your Bot:
 
 Bash
-
     sudo systemctl daemon-reload
     sudo systemctl restart trading_bot.service
+
 6. Verify:
 
 Bash
-
     sudo systemctl status trading_bot.service
     sudo tail -f /var/log/trading_bot.log
 

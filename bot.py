@@ -31,7 +31,8 @@ CONFIG = {
         '6h': '6h',
         '12h': '12h'
     },
-    'second_strategy_timeframes': ['15m','30min', '1h', '2h', '4h', '6h', '12h', '1d'],  # Timeframes for the second strategy
+    'second_strategy_timeframes': [''
+                                   'in','30min', '1h', '2h', '4h', '6h', '12h', '1d'],  # Timeframes for the second strategy
     'timeframe_priority': ['15min', '30min', '1h', '2h', '4h', '6h', '12h', '1d'],  # Order for data fetching for BB strategy
     'bb_period': 20,
     'bb_stddev': 2,
