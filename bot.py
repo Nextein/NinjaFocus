@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 from apscheduler.schedulers.blocking import BlockingScheduler
 import os
 import math
+import json
 
 # Import TALib from features.py
 from features import TALib  # Using the TALib class from the uploaded features.py
@@ -29,10 +30,10 @@ CONFIG = {
         '2h': '2h',
         '4h': '4h',
         '6h': '6h',
-        '12h': '12h'
+        '12h': '12h',
+        '1d': '1d',
     },
-    'second_strategy_timeframes': [''
-                                   'in','30min', '1h', '2h', '4h', '6h', '12h', '1d'],  # Timeframes for the second strategy
+    'second_strategy_timeframes': ['15min','30min', '1h', '2h', '4h', '6h', '12h', '1d'],  # Timeframes for the second strategy
     'timeframe_priority': ['15min', '30min', '1h', '2h', '4h', '6h', '12h', '1d'],  # Order for data fetching for BB strategy
     'bb_period': 20,
     'bb_stddev': 2,
@@ -43,9 +44,9 @@ CONFIG = {
     'min_candles_for_analysis': 50,  # Minimum candles needed for reliable indicators
     'max_fetch_limit': 1000,  # Maximum candles to fetch in one request
     'required_history_days': 7,  # Days of history needed for largest timeframe
-    'lookback_candles': 2  # Number of past candles to check for a signal (including current)
+    'lookback_candles': 1,  # Number of past candles to check for a signal (including current)
+    'state_file': 'signal_state.json'  # File to store signal states
 }
-
 
 # Initialize logging with date in filename
 def setup_logging():
@@ -108,7 +109,7 @@ def calculate_required_candles(timeframe):
         '4h': 240,
         '6h': 360,
         '12h': 720,
-        '1d': 1440  # Added '1d' for the second strategy
+        '1d': 1440
     }.get(timeframe, 15)  # Default to 15 minutes if timeframe not found
 
     # Calculate required candles to cover required_history_days
@@ -134,7 +135,7 @@ def get_ohlcv(timeframe=None, since=None, symbol=None):
             '4h': '4h',
             '6h': '6h',
             '12h': '12h',
-            '1d': '1d'  # Added '1d'
+            '1d': '1d' 
         }
 
         # If no timeframe specified, use the smallest one (5min)
@@ -165,9 +166,11 @@ def get_ohlcv(timeframe=None, since=None, symbol=None):
             # Fetch slightly more data to ensure enough for indicator calculations
             # The 'since' parameter needs to be in milliseconds
             since_ms = exchange.parse8601(
-                (datetime.now() - timedelta(minutes=timeframe_mins[timeframe] * limit)).isoformat())
+                (datetime.utcnow() - timedelta(minutes=timeframe_mins[timeframe] * limit)).isoformat())
+        else:
+            since_ms = since
 
-        logger.info(f"Fetching {limit} candles for {symbol} {tf} from {datetime.fromtimestamp(since_ms / 1000)}...")
+        logger.info(f"Fetching {limit} candles for {symbol} {tf} from {datetime.utcfromtimestamp(since_ms / 1000)}...")
         ohlcv = exchange.fetch_ohlcv(symbol, tf, since=since_ms, limit=limit)
         df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
         df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
@@ -221,12 +224,12 @@ def check_conditions(df):
     """Check for trading signals, including a lookback period"""
     try:
         if df is None or len(df) == 0:
-            return None, 0, None  # Added None for the candle index
+            return None, None, None  # Added None for the candle index
 
         # Ensure enough candles for lookback
         if len(df) < CONFIG['lookback_candles']:
             logger.warning(f"Not enough data for lookback period ({len(df)} < {CONFIG['lookback_candles']})")
-            return None, 0, None
+            return None, None, None
 
         # Iterate through the last 'lookback_candles'
         for i in range(1, CONFIG['lookback_candles'] + 1):
@@ -261,10 +264,10 @@ def check_conditions(df):
                 return "SELL", current_candle_data, i  # Return signal type, candle data, and index from end
 
         logger.info("No signal detected in the last lookback period.")
-        return None, 0, None
+        return None, None, None
     except Exception as e:
         logger.error(f"Error checking conditions: {str(e)}")
-        return None, 0, None
+        return None, None, None
 
 
 def plot_chart(df, signal_type, trigger_candle_index, timeframe):
@@ -394,116 +397,288 @@ def send_telegram_notification_with_chart(message, image_path, chat_ids_to_send)
             logger.error(f"Error removing chart image {image_path}: {str(e)}")
 
 
-def analyze_bollinger_strategy(timeframe, chat_ids):
-    """Analyzes data for Bollinger Band strategy and sends notifications."""
+def get_next_candle_start(timeframe):
+    """Calculate the exact UTC datetime when the next candle will start"""
+    # Get candle duration in minutes
+    timeframe_mins = {
+        '15min': 15,
+        '30min': 30,
+        '1h': 60,
+        '2h': 120,
+        '4h': 240,
+        '6h': 360,
+        '12h': 720,
+        '1d': 1440
+    }
+    
+    if timeframe not in timeframe_mins:
+        logger.error(f"Invalid timeframe: {timeframe}")
+        return None
+        
+    total_minutes = timeframe_mins[timeframe]
+    now = datetime.utcnow()
+    
+    if timeframe == '1d':
+        # Daily candles start at 00:00 UTC
+        next_start = (now + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+    else:
+        # Calculate current minute of day
+        current_minute_of_day = now.hour * 60 + now.minute
+        
+        # Calculate next candle start minute of day
+        next_minute_of_day = ((current_minute_of_day // total_minutes) + 1) * total_minutes
+        
+        if next_minute_of_day < 1440:  # 1440 minutes in a day
+            # Same day
+            next_start = now.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(minutes=next_minute_of_day)
+        else:
+            # Next day
+            next_minute_of_day -= 1440
+            next_start = (now + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(minutes=next_minute_of_day)
+    
+    return next_start
+
+
+def load_signal_state():
+    """Load signal state from file or initialize new state"""
+    state = {
+        'bollinger': {},
+        'reversal': {}
+    }
+    
+    # Initialize all timeframes
+    for tf in CONFIG['timeframes'].values():
+        state['bollinger'][tf] = {'last_signal': None, 'next_candle_start': None}
+    for tf in CONFIG['second_strategy_timeframes']:
+        state['reversal'][tf] = {'last_signal': None, 'next_candle_start': None}
+    
+    try:
+        if os.path.exists(CONFIG['state_file']):
+            with open(CONFIG['state_file'], 'r') as f:
+                saved_state = json.load(f)
+                
+                # Merge saved state with initialized state
+                for strategy in ['bollinger', 'reversal']:
+                    for tf in saved_state.get(strategy, {}):
+                        if tf in state[strategy]:
+                            # Only update if we have valid data
+                            state[strategy][tf] = saved_state[strategy][tf]
+                            
+                            # Convert next_candle_start from string to datetime if needed
+                            if state[strategy][tf]['next_candle_start']:
+                                try:
+                                    state[strategy][tf]['next_candle_start'] = datetime.fromisoformat(
+                                        state[strategy][tf]['next_candle_start']
+                                    )
+                                except Exception as e:
+                                    logger.error(f"Error parsing datetime: {str(e)}")
+                                    state[strategy][tf]['next_candle_start'] = None
+    except Exception as e:
+        logger.error(f"Error loading signal state: {str(e)}")
+    
+    return state
+
+
+def save_signal_state(state):
+    """Save signal state to file with datetime conversion"""
+    try:
+        # Create a copy for saving (convert datetime to ISO strings)
+        save_state = {
+            'bollinger': {},
+            'reversal': {}
+        }
+        
+        for strategy in ['bollinger', 'reversal']:
+            for tf, data in state[strategy].items():
+                save_state[strategy][tf] = data.copy()
+                if save_state[strategy][tf]['next_candle_start'] and isinstance(
+                    save_state[strategy][tf]['next_candle_start'], datetime
+                ):
+                    save_state[strategy][tf]['next_candle_start'] = save_state[strategy][tf]['next_candle_start'].isoformat()
+        
+        with open(CONFIG['state_file'], 'w') as f:
+            json.dump(save_state, f, indent=2)
+            logger.info("Signal state saved successfully")
+    except Exception as e:
+        logger.error(f"Error saving signal state: {str(e)}")
+
+
+def analyze_bollinger_strategy(timeframe, chat_ids, state):
+    """Analyzes data for Bollinger Band strategy with next-candle cooldown"""
     logger.info(f"Running Bollinger Band strategy for {CONFIG['symbol']} {timeframe}")
     df = get_ohlcv(timeframe=timeframe, symbol=CONFIG['symbol'])
     if df is None or df.empty:
-        return
+        return state
 
     df = calculate_indicators(df)
     if df is None or df.empty:
-        return
+        return state
 
     signal_type, trigger_candle_data, trigger_candle_relative_index = check_conditions(df)
 
     if signal_type:
-        price = trigger_candle_data['close']
-        rsi = trigger_candle_data['rsi']
-        timestamp = trigger_candle_data.name  # The timestamp is the index of the series
+        tf_state = state['bollinger'].get(timeframe, {'last_signal': None, 'next_candle_start': None})
+        now = datetime.utcnow()
+        
+        # Check if we should send notification
+        send_notification = False
+        
+        # Case 1: Different signal type
+        if tf_state['last_signal'] != signal_type:
+            send_notification = True
+        # Case 2: Cooldown expired (next candle has started)
+        elif tf_state['next_candle_start'] and now >= tf_state['next_candle_start']:
+            send_notification = True
+        # Case 3: No previous signal
+        elif tf_state['last_signal'] is None:
+            send_notification = True
+        
+        if send_notification:
+            price = trigger_candle_data['close']
+            rsi = trigger_candle_data['rsi']
+            timestamp = trigger_candle_data.name
+            
+            # Generate chart
+            chart_path = plot_chart(df, signal_type, trigger_candle_relative_index, timeframe)
+            if chart_path:
+                message = (
+                    f"🚨 *{signal_type} Signal Detected!* 🚨\n"
+                    f"• Symbol: {CONFIG['symbol']}\n"
+                    f"• Timeframe: {timeframe}\n"
+                    f"• Price: {price:.4f}\n"
+                    f"• RSI: {rsi:.2f}\n"
+                    f"• Time: {timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
+                )
+                send_telegram_notification_with_chart(message, chart_path, chat_ids)
+            else:
+                logger.error("Failed to generate chart for Bollinger Band strategy.")
+                message = (
+                    f"🚨 *{signal_type} Signal Detected!* 🚨\n"
+                    f"• Symbol: {CONFIG['symbol']}\n"
+                    f"• Timeframe: {timeframe}\n"
+                    f"• Price: {price:.4f}\n"
+                    f"• RSI: {rsi:.2f}\n"
+                    f"• Time: {timestamp.strftime('%Y-%m-%d %H:%M:%S')}\n"
+                    f"_(Chart generation failed)_"
+                )
+                send_telegram_message(message, chat_ids)
+            
+            # Update state with new signal and next candle start time
+            next_start = get_next_candle_start(timeframe)
+            state['bollinger'][timeframe] = {
+                'last_signal': signal_type,
+                'next_candle_start': next_start
+            }
+            logger.info(f"Updated state for {timeframe}: signal={signal_type}, next_candle={next_start}")
+    
+    return state
 
-        # Generate chart
-        chart_path = plot_chart(df, signal_type, trigger_candle_relative_index, timeframe)
-        if chart_path:
-            message = (
-                f"🚨 *{signal_type} Signal Detected!* 🚨\n"
-                f"• Symbol: {CONFIG['symbol']}\n"
-                f"• Timeframe: {timeframe}\n"
-                f"• Price: {price:.4f}\n"
-                f"• RSI: {rsi:.2f}\n"
-                f"• Time: {timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
-            )
-            send_telegram_notification_with_chart(message, chart_path, chat_ids)
-        else:
-            logger.error("Failed to generate chart for Bollinger Band strategy.")
-            message = (
-                f"🚨 *{signal_type} Signal Detected!* 🚨\n"
-                f"• Symbol: {CONFIG['symbol']}\n"
-                f"• Timeframe: {timeframe}\n"
-                f"• Price: {price:.4f}\n"
-                f"• RSI: {rsi:.2f}\n"
-                f"• Time: {timestamp.strftime('%Y-%m-%d %H:%M:%S')}\n"
-                f"_(Chart generation failed)_"
-            )
-            send_telegram_message(message, chat_ids)
 
-
-def analyze_second_strategy(timeframe, chat_ids):
-    """Analyzes data for the second strategy (reversal patterns) and sends notifications."""
-    logger.info(f"Running second strategy for {CONFIG['symbol']} {timeframe}")
+def analyze_rc_strategy(timeframe, chat_ids, state):
+    """Analyzes data for reversal strategy with next-candle cooldown"""
+    logger.info(f"Running reversal strategy for {CONFIG['symbol']} {timeframe}")
     # Fetch data for the specified symbol and timeframe
     df = get_ohlcv(timeframe=timeframe, symbol=CONFIG['symbol'])
     if df is None or df.empty:
-        return
+        return state
 
     try:
-        # Apply technical analysis using TALib methods from features.py
+        # Apply technical analysis
         reversal_pattern = TALib.relativeCandlesReversalPatterns(df)
         cycles = TALib.Cycles(df)
         phases = TALib.relativeCandlesPhases(df)
 
-        # Check for reversal patterns indicating a signal (1 for buy, -1 for sell)
-        # We need to ensure that the last candle data is considered for the signal
-        if not reversal_pattern.empty:
-            latest_reversal_pattern = reversal_pattern.iloc[-1]
-            latest_cycles = cycles.iloc[-1]
-            latest_phases = phases.iloc[-1]
-            latest_close_price = df['close'].iloc[-1]
-            latest_timestamp = df.index[-1]
+        if reversal_pattern.empty or cycles.empty or phases.empty:
+            return state
 
-            signal_message = None
-            if latest_reversal_pattern == 1:
-                signal_message = f"🟢 *2 cycles BUY Signal Detected!* 🟢\n"
-                signal_message += f"• Symbol: {CONFIG['symbol']}\n"
-                signal_message += f"• Timeframe: {timeframe}\n"
-                signal_message += f"• Close Price: {latest_close_price:.4f}\n"
-                signal_message += f"• Reversal Pattern: BUY\n"
-                signal_message += f"• Cycles: {latest_cycles}\n"
-                signal_message += f"• Phases: {latest_phases}\n"
-                signal_message += f"• Time: {latest_timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
-            elif latest_reversal_pattern == -1:
-                signal_message = f"🔴 *2 cycles  SELL Signal Detected!* 🔴\n"
-                signal_message += f"• Symbol: {CONFIG['symbol']}\n"
-                signal_message += f"• Timeframe: {timeframe}\n"
-                signal_message += f"• Close Price: {latest_close_price:.4f}\n"
-                signal_message += f"• Reversal Pattern: SELL\n"
-                signal_message += f"• Cycles: {latest_cycles}\n"
-                signal_message += f"• Phases: {latest_phases}\n"
-                signal_message += f"• Time: {latest_timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
+        # Get last values
+        if len(reversal_pattern) == 0:
+            return state
+            
+        latest_reversal_pattern = reversal_pattern.iloc[-1]
+        latest_close_price = df['close'].iloc[-1]
+        latest_timestamp = df.index[-1]
+        
+        signal_type = None
+        signal_message = None
+        
+        if latest_reversal_pattern == 1:
+            signal_type = "BUY"
+            signal_message = (
+                f"🟢 *Reversal BUY Signal Detected!* 🟢\n"
+                f"• Symbol: {CONFIG['symbol']}\n"
+                f"• Timeframe: {timeframe}\n"
+                f"• Close Price: {latest_close_price:.4f}\n"
+                f"• Time: {latest_timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
+            )
+        elif latest_reversal_pattern == -1:
+            signal_type = "SELL"
+            signal_message = (
+                f"🔴 *Reversal SELL Signal Detected!* 🔴\n"
+                f"• Symbol: {CONFIG['symbol']}\n"
+                f"• Timeframe: {timeframe}\n"
+                f"• Close Price: {latest_close_price:.4f}\n"
+                f"• Time: {latest_timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
+            )
 
-            if signal_message:
+        if signal_type and signal_message:
+            tf_state = state['reversal'].get(timeframe, {'last_signal': None, 'next_candle_start': None})
+            now = datetime.utcnow()
+            
+            # Check if we should send notification
+            send_notification = False
+            
+            # Case 1: Different signal type
+            if tf_state['last_signal'] != signal_type:
+                send_notification = True
+            # Case 2: Cooldown expired (next candle has started)
+            elif tf_state['next_candle_start'] and now >= tf_state['next_candle_start']:
+                send_notification = True
+            # Case 3: No previous signal
+            elif tf_state['last_signal'] is None:
+                send_notification = True
+            
+            if send_notification:
                 send_telegram_message(signal_message, chat_ids)
-            else:
-                logger.info(f"No signal detected for second strategy on {CONFIG['symbol']} {timeframe}.")
-        else:
-            logger.info(f"No reversal pattern data for second strategy on {CONFIG['symbol']} {timeframe}.")
-
+                # Update state with new signal and next candle start time
+                next_start = get_next_candle_start(timeframe)
+                state['reversal'][timeframe] = {
+                    'last_signal': signal_type,
+                    'next_candle_start': next_start
+                }
+                logger.info(f"Updated state for {timeframe}: signal={signal_type}, next_candle={next_start}")
+    
     except Exception as e:
-        logger.error(f"Error running second strategy for {CONFIG['symbol']} {timeframe}: {str(e)}")
+        logger.error(f"Error in reversal strategy: {str(e)}")
+    
+    return state
 
 
 def job():
-    """Main job to be run by the scheduler"""
+    """Main job with state persistence"""
     logger.info("Starting analysis job...")
     try:
-        # Run Bollinger Band Strategy for each defined timeframe, sending to Jose
+        # Load state
+        state = load_signal_state()
+        
+        # Run Bollinger Band Strategy
         for timeframe in CONFIG['timeframes'].values():
-            analyze_bollinger_strategy(timeframe, CONFIG['telegram_chat_ids']['jose'])
-
-        # Run Second Strategy for its specific timeframes, sending to Nexus
+            state = analyze_bollinger_strategy(
+                timeframe, 
+                CONFIG['telegram_chat_ids']['jose'],
+                state
+            )
+        
+        # Run Reversal Strategy
         for timeframe in CONFIG['second_strategy_timeframes']:
-            analyze_second_strategy(timeframe, CONFIG['telegram_chat_ids']['nexus'])
-
+            state = analyze_rc_strategy(
+                timeframe, 
+                CONFIG['telegram_chat_ids']['nexus'],
+                state
+            )
+        
+        # Save state
+        save_signal_state(state)
         logger.info("Analysis job completed")
     except Exception as e:
         logger.error(f"Job execution failed: {str(e)}", exc_info=True)
@@ -519,7 +694,7 @@ if __name__ == "__main__":
             f"• Symbol: {CONFIG['symbol']}\n"
             f"• Bollinger Timeframes: {', '.join(CONFIG['timeframes'].keys())}\n"
             f"• Second Strategy Timeframes: {', '.join(CONFIG['second_strategy_timeframes'])}\n"
-            f"• Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+            f"• Started at: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC"
         )
         send_telegram_message(start_msg, CONFIG['telegram_chat_ids']['jose'] + CONFIG['telegram_chat_ids'][
             'nexus'])  # Send startup to both
@@ -538,8 +713,8 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         shutdown_msg = (
             f"🛑 *Trading Bot Stopped* 🛑\n"
-            f"• Shutdown at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-            f"• Last run: {datetime.now().strftime('%H:%M:%S')}"
+            f"• Shutdown at: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC\n"
+            f"• Last run: {datetime.utcnow().strftime('%H:%M:%S')} UTC"
         )
         send_telegram_message(shutdown_msg, CONFIG['telegram_chat_ids']['jose'] + CONFIG['telegram_chat_ids'][
             'nexus'])  # Send shutdown to both
@@ -549,7 +724,7 @@ if __name__ == "__main__":
         error_msg = (
             f"❌ *Trading Bot Crashed* ❌\n"
             f"• Error: {str(e)}\n"
-            f"• Crash time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+            f"• Crash time: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC"
         )
         send_telegram_message(error_msg, CONFIG['telegram_chat_ids']['jose'] + CONFIG['telegram_chat_ids'][
             'nexus'])  # Send crash alert to both
