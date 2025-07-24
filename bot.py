@@ -20,7 +20,7 @@ CONFIG = {
     'telegram_token': '7697676714:AAEA8MQBUvW_FvgDsbPk1EH2Mm9Iow4hXFw',
     'telegram_chat_ids': {
         'jose': ['7781869973'],  # Jose's chat ID for Bollinger Band strategy
-        'nexus': ['6654462171']  # Nexus's chat ID for the second strategy
+        'nexus': ['6654462171']  # Nexus's chat ID for Relative Candles strategy
     },
     'symbol': 'SOL/USDT',  # Apply both strategies to SOL/USDT
     'timeframes': {  # Timeframes for the Bollinger Band strategy
@@ -693,7 +693,7 @@ if __name__ == "__main__":
             f"🤖 *Trading Bot Started* 🤖\n"
             f"• Symbol: {CONFIG['symbol']}\n"
             f"• Bollinger Timeframes: {', '.join(CONFIG['timeframes'].keys())}\n"
-            f"• Second Strategy Timeframes: {', '.join(CONFIG['second_strategy_timeframes'])}\n"
+            f"• Relative Candles Strategy Timeframes: {', '.join(CONFIG['second_strategy_timeframes'])}\n"
             f"• Started at: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC"
         )
         send_telegram_message(start_msg, CONFIG['telegram_chat_ids']['jose'] + CONFIG['telegram_chat_ids'][

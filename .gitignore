@@ -1,5 +1,8 @@
 .DS*
-__pycache
+__pycache__
 env
 venv
 *.log
+signal_state.json
+.idea
+.coverage
