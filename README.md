@@ -70,8 +70,9 @@ Optional (and recommended for better logging): You can also add the WorkingDirec
 
 ---
 
-Store this in: /etc/systemd/system/trading_bot.service
+Store this in: /etc/systemd/system/trading_bot.service`
 
+```
 [Unit]
 Description=Python Trading Bot
 After=network.target
@@ -87,6 +88,7 @@ StandardError=append:/var/log/trading_bot.log
 
 [Install]
 WantedBy=multi-user.target
+```
 
 ---
 
@@ -118,6 +120,7 @@ Bash
 
 to copy paste:
 
+```
 [Unit]
 Description=Python Trading Bot
 After=network.target
@@ -133,6 +136,7 @@ StandardError=append:/var/log/trading_bot.log
 
 [Install]
 WantedBy=multi-user.target
+```
 
 ---
 
